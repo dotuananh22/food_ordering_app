@@ -92,7 +92,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\EmptyHeart.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\food_ordering_app\food_ordering_app.csproj">
       <Project>{ABE99860-7F7A-4F69-937B-D497728EE1F8}</Project>

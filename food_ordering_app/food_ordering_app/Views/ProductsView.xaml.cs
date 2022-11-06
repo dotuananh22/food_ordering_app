@@ -1,4 +1,6 @@
-﻿using System;
+﻿using food_ordering_app.Model;
+using food_ordering_app.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +19,14 @@ namespace food_ordering_app.Views
             InitializeComponent();
         }
 
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var category = e.CurrentSelection.FirstOrDefault() as Category;
+            if (category == null)
+                return;
 
+            await Navigation.PushModalAsync(new CategoryView(category));
+            ((CollectionView)sender).SelectedItem = null;
         }
     }
 }
