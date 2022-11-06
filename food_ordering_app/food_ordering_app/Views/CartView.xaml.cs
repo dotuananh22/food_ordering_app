@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace food_ordering_app.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductsView : ContentPage
+    public partial class CartView : ContentPage
     {
-        public ProductsView()
+        public CartView()
         {
             InitializeComponent();
-        }
-
-        private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }
