@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,12 @@ namespace food_ordering_app.Views
         public CartView()
         {
             InitializeComponent();
+            LabelName.Text = "Welcome" + Preferences.Get("Username", "Guest")+ ",";
+        }
+
+        async private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

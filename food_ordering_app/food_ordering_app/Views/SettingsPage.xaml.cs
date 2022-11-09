@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using food_ordering_app.Helpers;
-
+using food_ordering_app.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,6 +28,20 @@ namespace food_ordering_app.Views
         {
             var afd = new AddFoodItemData();
             await afd.AddFoodItemAsync();
+        }
+
+        private void CartProducts_Clicked(object sender, EventArgs e)
+        {
+            var cct = new CreateCartTable();
+            if (cct.CreateTable())
+            {
+                DisplayAlert("success", "OK", "OK");
+            }
+            else
+            {
+                DisplayAlert("error", "error", "OK");
+
+            }
         }
     }
 }
