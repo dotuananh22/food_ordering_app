@@ -79,7 +79,7 @@
             <StackLayout Orientation="Horizontal" Grid.Row="4">
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
-                    <Button Text="Add to cart" BackgroundColor="LimeGreen"
+                    <Button Text="Thêm vào giỏ" BackgroundColor="LimeGreen"
                             WidthRequest="200" HorizontalOptions="Center"
                             Command="{Binding AddToCartCommand}"
                             HeightRequest="50"/>
@@ -87,19 +87,12 @@
 
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
-                    <Button Text="View cart" BackgroundColor="Orange"
+                    <Button Text="Trang chủ" BackgroundColor="Orange"
                             WidthRequest="200" HorizontalOptions="Center"
-                            Command="{Binding ViewCartCommand}"
+                            Command="{Binding HomeCommand}"
                             HeightRequest="50"/>
                 </pancake:PancakeView>
             </StackLayout>
-
-            <pancake:PancakeView Grid.Row="6" 
-                                 CornerRadius="60,60,0,0">
-                <Button Text="Go to home" BackgroundColor="SkyBlue"
-                        HeightRequest="50"
-                        Command="{Binding HomeCommand}"/>
-            </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

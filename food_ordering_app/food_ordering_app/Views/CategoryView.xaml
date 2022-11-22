@@ -46,48 +46,64 @@
                                     SelectionChanged='CollectionView_SelectionChanged'>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout>
-                                    <Frame HasShadow='False' BackgroundColor='#fef6f2' HeightRequest='90'
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                            <SwipeItem Text="Delete"
+                                                   IconImageSource="DeleteIcon.png"
+                                                   BackgroundColor="Red"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="SwipeItem_Invoked_Delete"/>
+                                            <SwipeItem Text="Buy now"
+                                                   IconImageSource="BuyIcon.png"
+                                                   BackgroundColor="Green"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="SwipeItem_Invoked_Buy" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <StackLayout>
+                                        <Frame HasShadow='False' BackgroundColor='#fef6f2' HeightRequest='90'
                                            CornerRadius='20' Margin='0,10'>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width='Auto'/>
-                                                <ColumnDefinition Width='*'/>
-                                                <ColumnDefinition Width='Auto'/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height='*'/>
-                                                <RowDefinition Height='*'/>
-                                                <RowDefinition Height='*'/>
-                                            </Grid.RowDefinitions>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width='Auto'/>
+                                                    <ColumnDefinition Width='*'/>
+                                                    <ColumnDefinition Width='Auto'/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height='*'/>
+                                                    <RowDefinition Height='*'/>
+                                                    <RowDefinition Height='*'/>
+                                                </Grid.RowDefinitions>
 
-                                            <pancake:PancakeView Grid.Column='0' Grid.Row='0' Grid.RowSpan='3'
+                                                <pancake:PancakeView Grid.Column='0' Grid.Row='0' Grid.RowSpan='3'
                                                                  CornerRadius='12' Margin='0,0,10,0'>
-                                                <Image Source='{Binding ImageUrl}' HeightRequest='100'
+                                                    <Image Source='{Binding ImageUrl}' HeightRequest='100'
                                                        WidthRequest='95' Aspect='AspectFill'/>
-                                            </pancake:PancakeView>
+                                                </pancake:PancakeView>
 
-                                            <Label Grid.Row='0' Grid.Column='1' Grid.ColumnSpan='2'
+                                                <Label Grid.Row='0' Grid.Column='1' Grid.ColumnSpan='2'
                                                    Text='{Binding Name}' FontSize='15' FontAttributes='Bold'/>
-                                            <Label Grid.Row='1' Grid.Column='1' Grid.ColumnSpan='2'
+                                                <Label Grid.Row='1' Grid.Column='1' Grid.ColumnSpan='2'
                                                    Text='{Binding Description}' FontSize='15'
                                                    TextColor='#a4a7b6'/>
-                                            <Image Grid.Row='2' Grid.Column='1' Source='Star.png'
+                                                <Image Grid.Row='2' Grid.Column='1' Source='Star.png'
                                                    HorizontalOptions='Start' WidthRequest='20'/>
-                                            <Label Grid.Row='2' Grid.Column='1' Margin='30,0,0,0'
+                                                <Label Grid.Row='2' Grid.Column='1' Margin='30,0,0,0'
                                                    FontSize='15' VerticalOptions='Center'>
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text='{Binding Rating}' FontAttributes='Bold'/>
-                                                        <Span Text='{Binding RatingDetail}' TextColor='#a4a7b6'/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <Image Grid.Row='0' Grid.Column='2' HeightRequest='15'
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text='{Binding Rating}' FontAttributes='Bold'/>
+                                                            <Span Text='{Binding RatingDetail}' TextColor='#a4a7b6'/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Image Grid.Row='0' Grid.Column='2' HeightRequest='15'
                                                    Source='{Binding HomeSelected}'/>
-                                        </Grid>
-                                    </Frame>
-                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </SwipeView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>

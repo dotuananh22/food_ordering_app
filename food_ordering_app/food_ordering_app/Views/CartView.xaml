@@ -7,6 +7,7 @@
              ios:Page.UseSafeArea="True"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.CartView"
+             Title="Giỏ hàng"
              Visual="Material"
              BackgroundColor="LimeGreen">
     <ContentPage.BindingContext>
@@ -29,9 +30,6 @@
                    HorizontalOptions="Center" VerticalOptions="Center"/>
             <Label x:Name="LabelName" FontSize="Subtitle" TextColor="WhiteSmoke"
                    HorizontalOptions="Center" VerticalOptions="End"/>
-            <ImageButton Source="{FontImage FontFamily=FontAwesome,Glyph={x:Static helpers:IconFont.ArrowLeft},
-                Size=30,Color=White}" Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
-                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked"/>
             <pancake:PancakeView Grid.Row="1" BackgroundColor="WhiteSmoke"
                                  CornerRadius="60,60,0,0">
                 <ListView x:Name="ListViewCartItems" Margin="20"
@@ -48,7 +46,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="Id" Grid.Column="0" FontSize="Subtitle"
+                                <Label Text="Hình ảnh" Grid.Column="0" FontSize="Subtitle"
                                        TextColor="Green"/>
                                 <Label Text="Name" Grid.Column="1" FontSize="Subtitle"
                                        TextColor="Green"/>
@@ -74,7 +72,7 @@
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding ProductId}" Grid.Column="0" FontSize="Body"
+                                        <Label Text="{Binding Image}" Grid.Column="0" FontSize="Body"
                                        TextColor="Green"/>
                                         <Label Text="{Binding ProductName}" Grid.Column="1" FontSize="Body"
                                        TextColor="Green"/>

@@ -35,5 +35,17 @@ namespace food_ordering_app.Views
             await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        private async void SwipeItem_Invoked_Delete(object sender, EventArgs e)
+        {
+            SwipeItem item = (SwipeItem)sender;
+            FoodItem product = item.CommandParameter as FoodItem;
+            await Navigation.PushModalAsync(new ProductDetailsView(product));
+        }
+
+        private async void SwipeItem_Invoked_Buy(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

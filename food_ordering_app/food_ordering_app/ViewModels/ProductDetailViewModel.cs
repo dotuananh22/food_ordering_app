@@ -50,9 +50,7 @@ namespace food_ordering_app.ViewModels
         public Command IncrementOrderComand { get; set; }
         public Command DecrementOrderComand { get; set; }
         public Command AddToCartCommand { get; set; }
-        public Command ViewCartCommand { get; set; }
         public Command HomeCommand { get; set; }
-
         public ProductDetailViewModel(FoodItem foodItem)
         {
             SelectedFoodItem = foodItem;
@@ -60,8 +58,12 @@ namespace food_ordering_app.ViewModels
             IncrementOrderComand = new Command(() => IncrementOrder());
             DecrementOrderComand = new Command(() => DecrementOrder());
             AddToCartCommand = new Command(() => AddToCart());
-            ViewCartCommand = new Command(async () => await ViewCartAsync());
-            HomeCommand = new Command(async () => await GoToHomeAsync());
+            HomeCommand = new Command(() => GoToHomeAsync());
+        }
+
+        private void GoToHomeAsync()
+        {
+            Application.Current.MainPage = new MainPage();
         }
 
         private void IncrementOrder()
@@ -80,6 +82,7 @@ namespace food_ordering_app.ViewModels
                 {
                     ProductId = SelectedFoodItem.ProductID,
                     ProductName = SelectedFoodItem.Name,
+                    Image = SelectedFoodItem.ImageUrl,
                     Price = SelectedFoodItem.Price,
                     Quantity = TotalQuantity
                 };
@@ -108,15 +111,6 @@ namespace food_ordering_app.ViewModels
                 cn.Close();
             }
         }
-        private async Task ViewCartAsync()
-        {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new CartView());
-
-        }
-        private async Task GoToHomeAsync()
-        {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
-
-        }
+       
     }
 }

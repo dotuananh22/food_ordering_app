@@ -61,6 +61,7 @@ namespace food_ordering_app.ViewModels
                     CartItemId=item.CartItemId,
                     ProductId=item.ProductId,
                     ProductName=item.ProductName,
+                    Image = item.Image,
                     Price = item.Price,
                     Quantity= item.Quantity,
                     Cost = item.Price*item.Quantity,

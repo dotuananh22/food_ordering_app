@@ -1,4 +1,5 @@
-﻿using food_ordering_app.Views;
+﻿using food_ordering_app.Model;
+using food_ordering_app.Views;
 using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -11,11 +12,8 @@ namespace food_ordering_app
         public App()
         {
             InitializeComponent();
-
-            //MainPage = new MainPage();
-            //MainPage = new LoginView();
-            //MainPage = new NavigationPage(new SettingsPage());
-
+            var cct = new CreateCartTable();
+            cct.CreateTable();
             string uname = Preferences.Get("Username", String.Empty);
             if (String.IsNullOrEmpty(uname))
             {
@@ -23,14 +21,13 @@ namespace food_ordering_app
             }
             else
             {
-                MainPage = new ProductsView();
+                MainPage = new MainPage();
             }
         }
 
         protected override void OnStart()
         {
         }
-
         protected override void OnSleep()
         {
         }

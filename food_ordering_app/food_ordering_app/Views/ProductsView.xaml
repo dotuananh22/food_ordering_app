@@ -21,7 +21,7 @@
                 <ColumnDefinition Width='*'/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row='0'>
+            <!--<Grid Grid.Row='0'>
                 <Grid.RowDefinitions>
                     <RowDefinition Height='Auto'/>
                     <RowDefinition Height='Auto'/>
@@ -58,7 +58,7 @@
                     Glyph={x:Static helpers:IconFont.Logout}, Size=40,Color=Red}'
                              Margin='0,0,10,0' HorizontalOptions='End'
                              Command='{Binding LogoutCommand}'/>
-            </Grid>
+            </Grid>-->
 
             <Grid Grid.Row='1' Grid.Column='0'>
                 <Grid.ColumnDefinitions>
@@ -68,10 +68,7 @@
 
                 <SearchBar Grid.Column='0' Placeholder='Search Food'
                            BackgroundColor='Transparent' HorizontalOptions='Fill'/>
-
-                <ImageButton Grid.Column='1' Source='{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.SearchWeb}, Size=40,Color=Black}'
-                             Margin='0,0,10,0' HorizontalOptions='End'/>
+                <ImageButton Grid.Column='1' Source="search.png"/>
             </Grid>
 
             <CollectionView ItemsSource='{Binding Categories}'

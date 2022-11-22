@@ -113,7 +113,7 @@ namespace food_ordering_app.ViewModels
                 if (Result)
                 {
                     Preferences.Set("Username", Username);
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                    Application.Current.MainPage = new MainPage();
                 }
                 else
                 {

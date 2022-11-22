@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
+             x:Class="food_ordering_app.Views.HeaderContentView">
+    <ContentView.BindingContext>
+        <vm:ProductsViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Image Aspect="AspectFit" Source="UITLogo.webp" 
+                   BackgroundColor="AliceBlue" 
+                   Opacity="0.5" 
+                   Grid.ColumnSpan="5" 
+                   Grid.RowSpan="4"/>
+            <StackLayout Grid.Column="1" Grid.Row="1" >
+                <Frame  CornerRadius="80" 
+                        HeightRequest="80"
+                        WidthRequest="80"   
+                        HorizontalOptions="Center"
+                        Padding="0"
+                        IsClippedToBounds="True">
+                    <Image Source="usericon.png" 
+                           HorizontalOptions="Center"
+                           Aspect="AspectFill"
+                           VerticalOptions="Center" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
+                         Margin="10,0,0,0" Orientation="Vertical">
+                <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Username}" TextColor="Black" FontAttributes="Bold"/>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

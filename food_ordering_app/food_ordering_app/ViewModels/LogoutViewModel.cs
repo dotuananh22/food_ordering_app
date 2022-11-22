@@ -41,26 +41,26 @@ namespace food_ordering_app.ViewModels
         }
 
         public Command LogoutCommand { get; set; }
-        public Command GoToCartCommand { get; set; }
+        public Command GoHomeCommand { get; set; }
         public LogoutViewModel()
         {
             UserCartItemCount = new CartItemService().GetUserCartCount();
             IsCartExists = (UserCartItemCount > 0) ? true : false;
-            LogoutCommand = new Command(async () => await LogoutAsync());
-            GoToCartCommand = new Command(async () => await GoToCartAsync());
+            LogoutCommand = new Command(() =>  LogoutAsync());
+            GoHomeCommand = new Command(() =>  GoHomeAsync());
         }
 
-        private async Task GoToCartAsync()
-        {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new CartView());
-        }
-
-        private async Task LogoutAsync()
+        private void LogoutAsync()
         {
             var cis = new CartItemService();
             cis.RemoveItemsFromCart();
             Preferences.Remove("Username");
-            await Application.Current.MainPage.Navigation.PushModalAsync(new LoginView());
+            Application.Current.MainPage = new LoginView();
+        }
+
+        private void GoHomeAsync()
+        {
+            Application.Current.MainPage = new MainPage();
         }
     }
 }
