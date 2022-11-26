@@ -6,51 +6,51 @@ using System.Linq;
 using System.Threading.Tasks;
 using food_ordering_app.Model;
 using Firebase.Database.Query;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Json;
 
 namespace food_ordering_app.Services
 {
     public class UserService
     {
-        FirebaseClient client;
+        HttpClient  client;
 
         public UserService()
         {
-            client = new FirebaseClient("https://foodorderingapp-d61a2-default-rtdb.firebaseio.com/");
-        }
-
-        public async Task<bool> IsUserExists(string uname)
-        {
-            var user = (await client.Child("Users")
-                .OnceAsync<User>()).Where(u => u.Object.Username == uname).FirstOrDefault();
-
-            return (user != null);
+            client = new HttpClient();
         }
 
         public async Task<bool> RegisterUser(string uname, string pass)
         {
-            if (await IsUserExists(uname) == false)
+            var user = new
             {
-                await client.Child("Users")
-                    .PostAsync(new User()
-                    {
-                        Username = uname,
-                        Password = pass
-                    });
-                return true;
-            }
-            else
+                userName = uname,
+                password = pass,
+            };
+            JsonContent content = JsonContent.Create(user);
+            var res = await client.PostAsync("http://192.168.1.5:3500/users", content);
+            if(!res.IsSuccessStatusCode)
             {
                 return false;
             }
+            return true;
         }
 
         public async Task<bool> LoginUser(string uname, string pass)
         {
-            var user = (await client.Child("Users")
-                .OnceAsync<User>()).Where(u => u.Object.Username == uname)
-                .Where(u => u.Object.Password == pass).FirstOrDefault();
-
-            return (user != null);
+            var user = new
+            {
+                userName = uname,
+                password = pass,
+            };
+            JsonContent content = JsonContent.Create(user);
+            var res = await client.PostAsync("http://192.168.1.5:3500/users/login", content);
+            if (!res.IsSuccessStatusCode)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
