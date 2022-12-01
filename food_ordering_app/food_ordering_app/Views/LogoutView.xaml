@@ -24,7 +24,7 @@
                     </StackLayout>
 
                     <StackLayout>
-                        <Label Text="Are you sure wanted to logout ?"/>
+                        <Label Text="Bạn có chắc chắn muốn đăng xuất?"/>
                         <StackLayout Orientation="Horizontal" Spacing="10">
                             <Button Text="Yes, Logout" HorizontalOptions="Center"
                                     BackgroundColor="Red" CornerRadius="20"

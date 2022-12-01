@@ -66,7 +66,7 @@
                     <ColumnDefinition Width='Auto'/>
                 </Grid.ColumnDefinitions>
 
-                <SearchBar Grid.Column='0' Placeholder='Search Food'
+                <SearchBar Grid.Column='0' Placeholder='Tìm kiếm'
                            BackgroundColor='Transparent' HorizontalOptions='Fill'/>
                 <ImageButton Grid.Column='1' Source="search.png"/>
             </Grid>
@@ -94,7 +94,7 @@
                 
             </CollectionView>
 
-            <Label Grid.Row='3' Text='Latest Items' FontSize='25' FontAttributes='Bold'/>
+            <Label Grid.Row='3' Text='Món ăn mới nhất' FontSize='25' FontAttributes='Bold'/>
 
             <CollectionView ItemsSource='{Binding LatestItems}'
                             Margin='0,20,10,0' VerticalOptions='Start'

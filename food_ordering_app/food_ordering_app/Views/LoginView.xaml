@@ -20,22 +20,24 @@
                 <Image Source='logo.png'
                        WidthRequest='100' HeightRequest='200'/>
 
-                <Label Text='Đăp nhập' FontFamily='CabinSketch'
+                <Label Text='Đăng nhập' FontFamily='CabinSketch'
                        TextColor='Purple' FontSize='40' HorizontalOptions='Center' />
             </StackLayout>
 
             <StackLayout Grid.Row='1' Spacing='10'>
-                <Entry Placeholder='Nhập tên đăng nhập' Text='{Binding Username}' />
-                <Entry Placeholder='Nhập mật khẩu' Text='{Binding Password}' IsPassword='True' />
+                <Entry Placeholder='Nhập tên đăng nhập' Text='{Binding Username}'
+                       Keyboard='Default'/>
+                <Entry Placeholder='Nhập mật khẩu' Text='{Binding Password}' IsPassword='True'
+                       Keyboard='Default'/>
 
                 <Button Text='Đăng nhập' HorizontalOptions='Center' BackgroundColor='Purple'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
                         Command='{Binding LoginCommand}'/>
 
-                <Label Text='Đăng kí mới :'/>
+                <Label Text='Bạn chưa có tài khoản?'/>
 
-                <Button x:Name="btnRegister" Text='Đăng kí' HorizontalOptions='Center' BackgroundColor='DarkOrange'
+                <Button x:Name="btnRegister" Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='DarkOrange'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
                         Clicked="btnRegister_Clicked"/>

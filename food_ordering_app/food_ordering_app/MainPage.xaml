@@ -9,7 +9,7 @@
         <views:HeaderContentView></views:HeaderContentView>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem Title="Burger Queen" 
+    <FlyoutItem Title="Trang chủ" 
                 Shell.TabBarIsVisible="True"
                 FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="Trang chủ" Icon="HomeIcon.png" >

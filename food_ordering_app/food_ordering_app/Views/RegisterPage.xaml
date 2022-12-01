@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="Đăng kí người dùng mới"
+             Title="Đăng ký người dùng mới"
               xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.RegisterPage">
     <ContentPage.BindingContext>
@@ -18,17 +18,21 @@
                 <Image Source='logo.png'
                        WidthRequest='100' HeightRequest='200'/>
 
-                <Label Text='Đăng kí mới' FontFamily='CabinSketch'
+                <Label Text='Đăng ký mới' FontFamily='CabinSketch'
                        TextColor='Purple' FontSize='40' HorizontalOptions='Center' />
             </StackLayout>
 
             <StackLayout Grid.Row='1' Spacing='10'>
-                <Entry Placeholder='Nhập tên đăng nhập' Text="{Binding Username}"/>
-                <Entry Placeholder='Nhập mật khẩu'  IsPassword='True' Text="{Binding Password}"/>
-                <Entry Placeholder='Nhập địa chỉ' Text="{Binding Address}" />
-                <Entry Placeholder='Nhập số điện thoại' Text="{Binding Telephone}"/>
+                <Entry Placeholder='Nhập tên đăng nhập' Text="{Binding Username}"
+                       Keyboard='Default'/>
+                <Entry Placeholder='Nhập mật khẩu'  IsPassword='True' Text="{Binding Password}"
+                       Keyboard='Default'/>
+                <Entry Placeholder='Nhập địa chỉ' Text="{Binding Address}" 
+                       Keyboard='Text'/>
+                <Entry Placeholder='Nhập số điện thoại' Text="{Binding Telephone}"
+                       Keyboard='Numeric'/>
 
-                <Button Text='Đăng kí' HorizontalOptions='Center' BackgroundColor='DarkOrange'
+                <Button Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='DarkOrange'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
                         Command="{Binding RegisterCommand}"

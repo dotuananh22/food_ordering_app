@@ -28,7 +28,7 @@ namespace food_ordering_app.Services
                 Message newMessage = new Message()
                 {
                     errorCode = "100",
-                    message = "Vui lòng điền thông tin tên đăng nhập và mật khẩu"
+                    message = "Vui lòng điền đầy đủ thông tin"
                 };
                 return newMessage;
             }
@@ -40,7 +40,7 @@ namespace food_ordering_app.Services
                 telephone = telephone,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.14:3500/users", content);       
+            var res = await client.PostAsync("http://192.168.2.91:3500/users", content);       
             var data = await res.Content.ReadAsStringAsync();
             Message result = JsonConvert.DeserializeObject<Message>(data);
             return result;          
@@ -53,7 +53,7 @@ namespace food_ordering_app.Services
                 password = pass,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.14:3500/users/login", content);
+            var res = await client.PostAsync("http://192.168.2.91:3500/users/login", content);
             var result = await res.Content.ReadAsStringAsync();
             Debug.WriteLine("check user", result);
             if (res.IsSuccessStatusCode)
