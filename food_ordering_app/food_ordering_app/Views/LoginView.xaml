@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.LoginView"
+             Title="Đăng nhập"
              BackgroundColor="White"
              Visual='Material'>
     <ContentPage.BindingContext>
@@ -19,25 +20,25 @@
                 <Image Source='logo.png'
                        WidthRequest='100' HeightRequest='200'/>
 
-                <Label Text='Login Form' FontFamily='CabinSketch'
+                <Label Text='Đăp nhập' FontFamily='CabinSketch'
                        TextColor='Purple' FontSize='40' HorizontalOptions='Center' />
             </StackLayout>
 
             <StackLayout Grid.Row='1' Spacing='10'>
-                <Entry Placeholder='Enter Username' Text='{Binding Username}' />
-                <Entry Placeholder='Enter Password' Text='{Binding Password}' IsPassword='True' />
+                <Entry Placeholder='Nhập tên đăng nhập' Text='{Binding Username}' />
+                <Entry Placeholder='Nhập mật khẩu' Text='{Binding Password}' IsPassword='True' />
 
-                <Button Text='Login' HorizontalOptions='Center' BackgroundColor='Purple'
+                <Button Text='Đăng nhập' HorizontalOptions='Center' BackgroundColor='Purple'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
                         Command='{Binding LoginCommand}'/>
 
-                <Label Text='New User :'/>
+                <Label Text='Đăng kí mới :'/>
 
-                <Button Text='Register' HorizontalOptions='Center' BackgroundColor='DarkOrange'
+                <Button x:Name="btnRegister" Text='Đăng kí' HorizontalOptions='Center' BackgroundColor='DarkOrange'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
-                        Command='{Binding RegisterCommand}'/>
+                        Clicked="btnRegister_Clicked"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

@@ -1,17 +1,14 @@
 ﻿using food_ordering_app.Model;
 using food_ordering_app.Services;
-using food_ordering_app.Views;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace food_ordering_app.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         private string _Username;
         public string Username
@@ -41,44 +38,59 @@ namespace food_ordering_app.ViewModels
             }
         }
 
-        private User _Result;
-        public User Result
+        private string _Address;
+        public string Address
         {
             set
             {
-                this._Result = value;
+                this._Address = value;
                 OnPropertyChanged();
             }
             get
             {
-                return this._Result;
+                return this._Address;
             }
         }
 
-        public Command LoginCommand { get; set; }
-      
-
-        public LoginViewModel()
+        private string _Telephone;
+        public string Telephone
         {
-            LoginCommand = new Command(async () => await LoginCommandAsync());           
+            set
+            {
+                this._Telephone = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return this._Telephone;
+            }
         }
-        private async Task LoginCommandAsync()
+
+        public Command RegisterCommand { get; set; }
+
+        public RegisterViewModel()
         {
+            RegisterCommand = new Command(async () => await RegisterCommandAsync());
+        }
+
+        private async Task RegisterCommandAsync()
+        {         
             try
             {
                 var userService = new UserService();
-                User Result = new User();
-                Result = await userService.LoginUser(Username, Password);
-                if(Result == null)
+                Message Result = new Message();
+                Result = await userService.RegisterUser(Username, Password, Address, Telephone);
+                if (Result.errorCode == "0")
                 {
-                    await Application.Current.MainPage.DisplayAlert("Thông báo", "Tên đăng nhập hoặc mật khẩu không chính xác", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Thành công",
+                      Result.message, "OK");
                     return;
                 }
-                Preferences.Set("Username", Result.userName);
-                Preferences.Set("Address", Result.address);
-                Preferences.Set("Telephone", Result.telephone);
-                Preferences.Set("UserId", Result._id);
-                Application.Current.MainPage = new MainPage();              
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Lỗi", Result.message, "OK");
+                }
+                                                    
             }
             catch (Exception ex)
             {

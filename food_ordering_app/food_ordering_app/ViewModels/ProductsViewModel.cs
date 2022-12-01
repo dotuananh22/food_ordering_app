@@ -27,6 +27,20 @@ namespace food_ordering_app.ViewModels
             }
         }
 
+        private string _Address;
+        public string Address
+        {
+            set
+            {
+                _Address = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _Address;
+            }
+        }
+
         private int _UserCartItemsCount;
         public int UserCartItemsCount
         {
@@ -54,6 +68,8 @@ namespace food_ordering_app.ViewModels
                 Username = "Guest";
             else
                 Username = uname;
+
+            Address = Preferences.Get("Address", String.Empty);
 
             UserCartItemsCount = new CartItemService().GetUserCartCount();
 

@@ -9,35 +9,43 @@ using Firebase.Database.Query;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
+using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace food_ordering_app.Services
 {
     public class UserService
     {
         HttpClient  client;
-
         public UserService()
         {
             client = new HttpClient();
         }
-
-        public async Task<bool> RegisterUser(string uname, string pass)
+        public async Task<Message> RegisterUser(string uname, string pass, string address, string telephone)
         {
+            if (uname.Length <= 0 || pass.Length <= 0 || address.Length <= 0 || telephone.Length <= 0)
+            {
+                Message newMessage = new Message()
+                {
+                    errorCode = "100",
+                    message = "Vui lòng điền thông tin tên đăng nhập và mật khẩu"
+                };
+                return newMessage;
+            }
             var user = new
             {
                 userName = uname,
                 password = pass,
+                address = address,
+                telephone = telephone,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.5:3500/users", content);
-            if(!res.IsSuccessStatusCode)
-            {
-                return false;
-            }
-            return true;
+            var res = await client.PostAsync("http://192.168.1.14:3500/users", content);       
+            var data = await res.Content.ReadAsStringAsync();
+            Message result = JsonConvert.DeserializeObject<Message>(data);
+            return result;          
         }
-
-        public async Task<bool> LoginUser(string uname, string pass)
+        public async Task<User> LoginUser(string uname, string pass)
         {
             var user = new
             {
@@ -45,12 +53,15 @@ namespace food_ordering_app.Services
                 password = pass,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.5:3500/users/login", content);
-            if (!res.IsSuccessStatusCode)
+            var res = await client.PostAsync("http://192.168.1.14:3500/users/login", content);
+            var result = await res.Content.ReadAsStringAsync();
+            Debug.WriteLine("check user", result);
+            if (res.IsSuccessStatusCode)
             {
-                return false;
+                return JsonConvert.DeserializeObject<User>(result);
             }
-            return true;
+            else { return null; }
+           
         }
     }
 }

@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.HeaderContentView">
     <ContentView.BindingContext>
-        <vm:ProductsViewModel/>
+        <vm:UserViewModel/>
     </ContentView.BindingContext>
     <ContentView.Content>
         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -44,6 +44,12 @@
                 <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
                        Text="{Binding Username}" TextColor="Black" FontAttributes="Bold"/>
+                <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Address}" TextColor="Black" FontAttributes="Bold"/>
+                <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Telephone}" TextColor="Black" FontAttributes="Bold"/>
             </StackLayout>
         </Grid>
     </ContentView.Content>

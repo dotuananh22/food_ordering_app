@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace food_ordering_app.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class RegisterPage : ContentPage
     {
-        public LoginView()
+        public RegisterPage()
         {
             InitializeComponent();
-        }
-
-        private void btnRegister_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new RegisterPage());
         }
     }
 }
