@@ -13,34 +13,6 @@ namespace food_ordering_app.ViewModels
 {
     public class ProductsViewModel : BaseViewModel
     {
-        private string _Username;
-        public string Username
-        {
-            set
-            {
-                _Username = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _Username;
-            }
-        }
-
-        private string _Address;
-        public string Address
-        {
-            set
-            {
-                _Address = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _Address;
-            }
-        }
-
         private int _UserCartItemsCount;
         public int UserCartItemsCount
         {
@@ -62,15 +34,7 @@ namespace food_ordering_app.ViewModels
         public Command LogoutCommand { get; set; }
         
         public ProductsViewModel()
-        {
-            var uname = Preferences.Get("Username", String.Empty);
-            if (String.IsNullOrEmpty(uname))
-                Username = "Guest";
-            else
-                Username = uname;
-
-            Address = Preferences.Get("Address", String.Empty);
-
+        {          
             UserCartItemsCount = new CartItemService().GetUserCartCount();
 
             Categories = new ObservableCollection<Category>();

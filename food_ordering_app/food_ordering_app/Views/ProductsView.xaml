@@ -9,7 +9,7 @@
         <vm:ProductsViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid Margin='20,0,0,0'>
+        <Grid Margin='10'>
             <Grid.RowDefinitions>
                 <RowDefinition Height='Auto'/>
                 <RowDefinition Height='Auto'/>
@@ -60,16 +60,10 @@
                              Command='{Binding LogoutCommand}'/>
             </Grid>-->
 
-            <Grid Grid.Row='1' Grid.Column='0'>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width='*'/>
-                    <ColumnDefinition Width='Auto'/>
-                </Grid.ColumnDefinitions>
 
-                <SearchBar Grid.Column='0' Placeholder='Tìm kiếm'
+
+            <SearchBar Placeholder='Tìm kiếm'
                            BackgroundColor='Transparent' HorizontalOptions='Fill'/>
-                <ImageButton Grid.Column='1' Source="search.png"/>
-            </Grid>
 
             <CollectionView ItemsSource='{Binding Categories}'
                             Margin='0,20'
@@ -87,7 +81,7 @@
                                    HorizontalOptions='Center' VerticalOptions='Center'>
                                 <Image Source='{Binding ImageUrl}'/>
                             </Frame>
-                            <Label Text='{Binding CategoryName}' HorizontalTextAlignment='Center'/>
+                            <Label Text='{Binding categoryName}' HorizontalTextAlignment='Center'/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

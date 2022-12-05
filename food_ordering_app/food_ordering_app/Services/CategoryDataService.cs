@@ -6,29 +6,22 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace food_ordering_app.Services
 {
     public class CategoryDataService
     {
-        FirebaseClient client;
-
+        HttpClient client;
         public CategoryDataService()
         {
-            client = new FirebaseClient("https://foodorderingapp-d61a2-default-rtdb.firebaseio.com/");
+            client = new HttpClient();
         }
-
         public async Task<List<Category>> GetCategoriesAsync()
         {
-            var categories = (await client.Child("Categories")
-                .OnceAsync<Category>())
-                .Select(c => new Category
-                {
-                    CategoryID = c.Object.CategoryID,
-                    CategoryName = c.Object.CategoryName,
-                    CategoryPoster = c.Object.CategoryPoster,
-                    ImageUrl = c.Object.ImageUrl,
-                }).ToList();
+            var res = await client.GetStringAsync("http://192.168.1.9:3500/categories");
+            var categories = JsonConvert.DeserializeObject<List<Category>>(res);
             return categories;
         }
     }

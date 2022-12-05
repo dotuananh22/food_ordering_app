@@ -43,10 +43,10 @@ namespace food_ordering_app.ViewModels
         {
             SelectedCategory = category;
             FoodItemsByCategory = new ObservableCollection<FoodItem>();
-            GetFoodItems(category.CategoryID);
+            GetFoodItems(category._id);
         }
 
-        private async void GetFoodItems(int categoryID)
+        private async void GetFoodItems(string categoryID)
         {
             var data = await new FoodItemService().GetFoodItemsByCategoryAsync(categoryID);
             FoodItemsByCategory.Clear();
