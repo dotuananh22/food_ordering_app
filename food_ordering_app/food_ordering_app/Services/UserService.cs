@@ -10,6 +10,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
 using System.Diagnostics;
+using food_ordering_app.Helpers;
 using Xamarin.Forms;
 
 namespace food_ordering_app.Services
@@ -17,9 +18,11 @@ namespace food_ordering_app.Services
     public class UserService
     {
         HttpClient  client;
+        ApiConnectHelper host;
         public UserService()
         {
             client = new HttpClient();
+            host = new ApiConnectHelper();
         }
         public async Task<Message> RegisterUser(string uname, string pass, string address, string telephone)
         {
@@ -40,7 +43,7 @@ namespace food_ordering_app.Services
                 telephone = telephone,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.9:3500/users", content);       
+            var res = await client.PostAsync(host.ENV_HOST + "users", content);       
             var data = await res.Content.ReadAsStringAsync();
             Message result = JsonConvert.DeserializeObject<Message>(data);
             return result;          
@@ -53,7 +56,7 @@ namespace food_ordering_app.Services
                 password = pass,
             };
             JsonContent content = JsonContent.Create(user);
-            var res = await client.PostAsync("http://192.168.1.9:3500/users/login", content);
+            var res = await client.PostAsync(host.ENV_HOST + "users/login", content);
             var result = await res.Content.ReadAsStringAsync();
             Debug.WriteLine("check user", result);
             if (res.IsSuccessStatusCode)

@@ -8,19 +8,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json;
+using food_ordering_app.Helpers;
 
 namespace food_ordering_app.Services
 {
     public class CategoryDataService
     {
         HttpClient client;
+        ApiConnectHelper host;
         public CategoryDataService()
         {
             client = new HttpClient();
+            host = new ApiConnectHelper();
         }
         public async Task<List<Category>> GetCategoriesAsync()
         {
-            var res = await client.GetStringAsync("http://192.168.1.9:3500/categories");
+            var res = await client.GetStringAsync(host.ENV_HOST + "categories");
             var categories = JsonConvert.DeserializeObject<List<Category>>(res);
             return categories;
         }

@@ -105,17 +105,17 @@
                                 </Grid.RowDefinitions>
 
                                 <pancake:PancakeView Grid.Row='0' CornerRadius='20' Margin='0,0,10,0'>
-                                    <Image Source='{Binding ImageUrl}' HeightRequest='220' Aspect='Fill'/>
+                                    <Image Source='{Binding imageUrl}' HeightRequest='220' Aspect='Fill'/>
                                 </pancake:PancakeView>
 
                                 <Frame Grid.Row='1' Margin='20,-80,20,70' BackgroundColor='White'
                                        CornerRadius='15' HorizontalOptions='End'>
-                                    <Label Text="{Binding Price, StringFormat='{0:c}'}"
+                                    <Label Text="{Binding price, StringFormat='{0:c}'}"
                                            FontSize='Medium' FontAttributes='Bold'
                                            TextColor='Black' HeightRequest='20'/>
                                 </Frame>
 
-                                <Label Grid.Row='1' Text='{Binding Name}' 
+                                <Label Grid.Row='1' Text='{Binding name}' 
                                        FontSize='22' FontAttributes='Bold'
                                        VerticalTextAlignment='Center'/>
                                 <Image Grid.Row='2' Source='Star.png' HorizontalOptions='Start'
@@ -124,8 +124,8 @@
                                        FontSize='15' VerticalOptions='Center'>
                                     <Label.FormattedText>
                                         <FormattedString>
-                                            <Span Text='{Binding Rating}' FontAttributes='Bold'/>
-                                            <Span Text='{Binding Description}' TextColor='#a4a7b6'/>
+                                            <Span Text='{Binding rating}' FontAttributes='Bold'/>
+                                            <Span Text='{Binding description}' TextColor='#a4a7b6'/>
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>

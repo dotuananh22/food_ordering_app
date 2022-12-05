@@ -80,14 +80,14 @@ namespace food_ordering_app.ViewModels
             try {
                 CartItem ci = new CartItem()
                 {
-                    ProductId = SelectedFoodItem.ProductID,
-                    ProductName = SelectedFoodItem.Name,
-                    Image = SelectedFoodItem.ImageUrl,
-                    Price = SelectedFoodItem.Price,
+                    ProductId = SelectedFoodItem._id,
+                    ProductName = SelectedFoodItem.name,
+                    Image = SelectedFoodItem.imageUrl,
+                    Price = SelectedFoodItem.price,
                     Quantity = TotalQuantity
                 };
                 var item = cn.Table<CartItem>().ToList()
-                    .FirstOrDefault(c => c.ProductId == SelectedFoodItem.ProductID);
+                    .FirstOrDefault(c => c.ProductId == SelectedFoodItem._id);
                 if(item == null)
                 {
                     cn.Insert(ci);

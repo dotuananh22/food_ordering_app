@@ -19,9 +19,9 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <Image Aspect="AspectFit" Source="UITLogo.webp" 
+            <Image Aspect="AspectFill" Source="logo.png" 
                    BackgroundColor="AliceBlue" 
-                   Opacity="0.5" 
+                   Opacity="0.6" 
                    Grid.ColumnSpan="5" 
                    Grid.RowSpan="4"/>
             <StackLayout Grid.Column="1" Grid.Row="1" >

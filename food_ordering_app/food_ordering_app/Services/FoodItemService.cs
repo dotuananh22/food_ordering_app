@@ -9,22 +9,24 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using Newtonsoft.Json;
+using food_ordering_app.Helpers;
 
 namespace food_ordering_app.Services
 {
     public class FoodItemService
     {
         HttpClient client;
-
+        ApiConnectHelper host;
         public FoodItemService()
         {
             client = new HttpClient();
+            host = new ApiConnectHelper();
         }
 
         public async Task<ObservableCollection<FoodItem>> GetFoodItemsByCategoryAsync(string categoryID)
         {
             var foodItemsByCategory = new ObservableCollection<FoodItem>();
-            var items = await client.GetStringAsync("http://192.168.1.9:3500/foodItems/" + categoryID.ToString());
+            var items = await client.GetStringAsync(host.ENV_HOST + "foodItems/" + categoryID.ToString());
             var result = JsonConvert.DeserializeObject<List<FoodItem>>(items);
             foreach (var item in result)
             {
@@ -36,7 +38,7 @@ namespace food_ordering_app.Services
         public async Task<ObservableCollection<FoodItem>> GetLatestFoodItemsAsync()
         {
             var latestFoodItems = new ObservableCollection<FoodItem>();
-            var items = await client.GetStringAsync("http://192.168.1.9:3500/foodItems/find-last-foodItems");
+            var items = await client.GetStringAsync(host.ENV_HOST + "foodItems/find-last-foodItems");
             var result = JsonConvert.DeserializeObject<List<FoodItem>>(items);
 
             foreach (var item in result)
