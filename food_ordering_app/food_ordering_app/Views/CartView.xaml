@@ -10,6 +10,11 @@
              Title="Giỏ hàng"
              Visual="Material"
              BackgroundColor="LimeGreen">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:TotalCostConverter x:Key='totalCostConverter' />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:CartViewModel/>
     </ContentPage.BindingContext>
@@ -46,15 +51,15 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Text="Hình ảnh" Grid.Column="0" FontSize="Subtitle"
+                                <Label Text="Hình ảnh" Grid.Column="0" FontSize="Small"
                                        TextColor="Green"/>
-                                <Label Text="Name" Grid.Column="1" FontSize="Subtitle"
+                                <Label Text="Sản phẩm" Grid.Column="1" FontSize="Small"
                                        TextColor="Green"/>
-                                <Label Text="Price" Grid.Column="2" FontSize="Subtitle"
+                                <Label Text="Đơn giá" Grid.Column="2" FontSize="Small"
                                        TextColor="Green"/>
-                                <Label Text="Qty" Grid.Column="3" FontSize="Subtitle"
+                                <Label Text="Số lượng" Grid.Column="3" FontSize="Small"
                                        TextColor="Green"/>
-                                <Label Text="Cost" Grid.Column="4" FontSize="Subtitle"
+                                <Label Text="Thành tiền" Grid.Column="4" FontSize="Small"
                                        TextColor="Green"/>
                             </Grid>
                         </DataTemplate>
@@ -66,7 +71,7 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="2*"/>
+                                            <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="*"/>
@@ -90,10 +95,10 @@
                 </ListView>
             </pancake:PancakeView>
 
-            <Label Text="{Binding TotalCost, StringFormat='Total Cost : {0:c}'}"
+            <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
                    Grid.Row="2" HorizontalTextAlignment="End" FontSize="Title"
                    TextColor="WhiteSmoke"/>
-            <Button Text="Place Order" Grid.Row="3" TextColor="White"
+            <Button Text="Đặt hàng" Grid.Row="3" TextColor="White" Margin='0,0,0,4'
                     Command="{Binding PlcaeOrderCommand}"
                     HorizontalOptions="Center" CornerRadius="20"/>
         </Grid>
