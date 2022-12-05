@@ -47,5 +47,13 @@ namespace food_ordering_app.Services
             }
             return latestFoodItems;
         }
+
+        public async Task<FoodItem> GetFoodItemDetailAsync(string foodItemId)
+        {
+            var foodItem = new FoodItem();
+            var res = await client.GetStringAsync(host.ENV_HOST + "foodItems/findById/" + foodItemId.ToString());
+            foodItem = JsonConvert.DeserializeObject<FoodItem>(res);
+            return foodItem;
+        }
     }
 }

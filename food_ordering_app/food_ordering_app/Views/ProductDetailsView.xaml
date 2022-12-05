@@ -15,43 +15,43 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Source="{Binding SelectedFoodItem.ImageUrl}" 
+            <Image Grid.Row="0" Source="{Binding SelectedFoodItem.imageUrl}" 
                    Aspect="AspectFill" VerticalOptions="Start"/>
-            <Label Grid.Row="1" Text="{Binding SelectedFoodItem.Name}"
+            <Label Grid.Row="1" Text="{Binding SelectedFoodItem.name}"
                    TextColor="White" FontAttributes="Bold"
                    FontSize="35" Margin="25,-85,0,0"/>
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=White}"
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=45,Color=Black}"
                          Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
                          VerticalOptions="Start" Margin="10,30"
                          Clicked="ImageButton_Clicked"/>
             <StackLayout Grid.Row="2" Spacing="10" Padding="10"
                          VerticalOptions="Start">
                 <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Product ID: " FontSize="Subtitle"
+                    <Label Text="ID sản phẩm: " FontSize="Subtitle"
                            />
-                    <Label Text="{Binding SelectedFoodItem.ProductID}" FontSize="Subtitle"
+                    <Label Text="{Binding SelectedFoodItem._id}" FontSize="Subtitle"
                            TextColor="Purple"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Product Name: " FontSize="Subtitle"
+                    <Label Text="Tên sản phẩm: " FontSize="Subtitle"
                            />
-                    <Label Text="{Binding SelectedFoodItem.Name}" FontSize="Subtitle"
+                    <Label Text="{Binding SelectedFoodItem.name}" FontSize="Subtitle"
                            TextColor="Purple"/>
                 </StackLayout>
                 
                 <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Description: " FontSize="Subtitle"
+                    <Label Text="Mô tả thêm: " FontSize="Subtitle"
                            />
-                    <Label Text="{Binding SelectedFoodItem.Description}" FontSize="Subtitle"
+                    <Label Text="{Binding SelectedFoodItem.description}" FontSize="Subtitle"
                            TextColor="Purple"/>
                 </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Rating: " FontSize="Subtitle"
+                    <Label Text="Xếp hạng: " FontSize="Subtitle"
                            />
-                    <Label Text="{Binding SelectedFoodItem.Rating}" FontSize="Subtitle"
+                    <Label Text="{Binding SelectedFoodItem.rating}" FontSize="Subtitle"
                            TextColor="Purple"/>
                 </StackLayout>
             </StackLayout>

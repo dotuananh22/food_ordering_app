@@ -55,7 +55,7 @@ namespace food_ordering_app.ViewModels
             var cis = new CartItemService();
             cis.RemoveItemsFromCart();
             Preferences.Remove("Username");
-            Application.Current.MainPage = new LoginView();
+            Application.Current.MainPage = new NavigationPage(new LoginView());
         }
 
         private void GoHomeAsync()
