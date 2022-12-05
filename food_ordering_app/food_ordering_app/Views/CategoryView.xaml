@@ -12,13 +12,13 @@
                 <RowDefinition Height='*'/>
             </Grid.RowDefinitions>
 
-            <Image Grid.Row='0' Source='{Binding SelectedCategory.CategoryPoster}'
+            <Image Grid.Row='0' Source='{Binding SelectedCategory.ImageUrl}'
                    Aspect='AspectFill' VerticalOptions='Start'/>
-            <Label Grid.Row='1' Text='{Binding SelectedCategory.CategoryName}'
-                   TextColor='White' FontAttributes='Bold' FontSize='35'
+            <Label Grid.Row='1' Text='{Binding SelectedCategory.categoryName}'
+                   TextColor='Black' FontAttributes='Italic' FontSize='35'
                    Margin='25,-85,0,0'/>
             <ImageButton Source='{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=White}'
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=Black}'
                          Grid.Row='0' HorizontalOptions='Start' Aspect='AspectFill'
                          VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
 
@@ -35,7 +35,7 @@
                     </Grid.RowDefinitions>
                     
                     <Label Grid.Row='0' Grid.Column='0' Text="{Binding TotalFoodItems,
-                        StringFormat='{0} Total Items'}" FontSize='18' FontAttributes='Bold'/>
+                        StringFormat='{0} Tổng số sản phẩm'}" FontSize='18' FontAttributes='Bold'/>
                     <Image Grid.Row='0' Grid.Column='1' Source='More'/>
 
                     <CollectionView ItemsSource='{Binding FoodItemsByCategory}'
@@ -78,12 +78,12 @@
 
                                                 <pancake:PancakeView Grid.Column='0' Grid.Row='0' Grid.RowSpan='3'
                                                                  CornerRadius='12' Margin='0,0,10,0'>
-                                                    <Image Source='{Binding ImageUrl}' HeightRequest='100'
+                                                    <Image Source='{Binding imageUrl}' HeightRequest='100'
                                                        WidthRequest='95' Aspect='AspectFill'/>
                                                 </pancake:PancakeView>
 
                                                 <Label Grid.Row='0' Grid.Column='1' Grid.ColumnSpan='2'
-                                                   Text='{Binding Name}' FontSize='15' FontAttributes='Bold'/>
+                                                   Text='{Binding name}' FontSize='15' FontAttributes='Bold'/>
                                                 <Label Grid.Row='1' Grid.Column='1' Grid.ColumnSpan='2'
                                                    Text='{Binding Description}' FontSize='15'
                                                    TextColor='#a4a7b6'/>
@@ -93,8 +93,7 @@
                                                    FontSize='15' VerticalOptions='Center'>
                                                     <Label.FormattedText>
                                                         <FormattedString>
-                                                            <Span Text='{Binding Rating}' FontAttributes='Bold'/>
-                                                            <Span Text='{Binding RatingDetail}' TextColor='#a4a7b6'/>
+                                                            <Span Text='{Binding rating}' FontAttributes='Bold'/>
                                                         </FormattedString>
                                                     </Label.FormattedText>
                                                 </Label>

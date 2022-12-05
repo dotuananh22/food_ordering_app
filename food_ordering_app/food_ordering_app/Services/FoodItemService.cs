@@ -26,7 +26,7 @@ namespace food_ordering_app.Services
         public async Task<ObservableCollection<FoodItem>> GetFoodItemsByCategoryAsync(string categoryID)
         {
             var foodItemsByCategory = new ObservableCollection<FoodItem>();
-            var items = await client.GetStringAsync(host.ENV_HOST + "foodItems/" + categoryID.ToString());
+            var items = await client.GetStringAsync(host.ENV_HOST + "foodItems/findByCategoryId/" + categoryID.ToString());
             var result = JsonConvert.DeserializeObject<List<FoodItem>>(items);
             foreach (var item in result)
             {
