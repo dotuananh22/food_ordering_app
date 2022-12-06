@@ -18,10 +18,10 @@
             <Image Grid.Row="0" Source="{Binding SelectedFoodItem.imageUrl}" 
                    Aspect="AspectFill" VerticalOptions="Start"/>
             <Label Grid.Row="1" Text="{Binding SelectedFoodItem.name}"
-                   TextColor="White" FontAttributes="Bold"
+                   TextColor="White" FontAttributes="Italic"
                    FontSize="35" Margin="25,-85,0,0"/>
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=45,Color=Black}"
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=35,Color=Black}"
                          Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
                          VerticalOptions="Start" Margin="10,30"
                          Clicked="ImageButton_Clicked"/>

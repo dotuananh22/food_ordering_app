@@ -8,35 +8,24 @@
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.CartView"
              Title="Giỏ hàng"
-             Visual="Material"
-             BackgroundColor="LimeGreen">
+             >
     <ContentPage.BindingContext>
         <vm:CartViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid BackgroundColor="LimeGreen">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <BoxView Grid.Row="0">
-                
-            </BoxView>
-            <Label Text="Burger Queen" FontSize="40" TextColor="WhiteSmoke"
-                   FontFamily="CabinSketch"
-                   HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="LabelName" FontSize="Subtitle" TextColor="WhiteSmoke"
-                   HorizontalOptions="Center" VerticalOptions="End"/>
-            <pancake:PancakeView Grid.Row="1" BackgroundColor="WhiteSmoke"
-                                 CornerRadius="60,60,0,0">
-                <ListView x:Name="ListViewCartItems" Margin="20"
+            <Label x:Name="LabelName" FontSize="Subtitle" TextColor="Black"
+                   HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0"/>
+            <pancake:PancakeView Grid.Row="1">
+                <ListView x:Name="ListViewCartItems" Margin="10"
                           SeparatorVisibility="None" BackgroundColor="WhiteSmoke"
                           ItemsSource="{Binding CartItems}" Header=""
                           HasUnevenRows="True">
-                    <ListView.HeaderTemplate>
+                    <!--<ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -58,30 +47,36 @@
                                        TextColor="Green"/>
                             </Grid>
                         </DataTemplate>
-                    </ListView.HeaderTemplate>
+                    </ListView.HeaderTemplate>-->
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <Grid>
+                                    <Grid Padding="10">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="2*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
+                        
+                                        <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill"/>
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Green"/>
+                                            <Label Text="Giá:" FontSize="Body" TextColor="Green"/>
+                                            <Label Text="Số lượng:" FontSize="Body" TextColor="Green"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="2">
+                                            <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Green"/>
+                                            <Label Text="{Binding Price}"  FontSize="Body" TextColor="Green"/>
+                                            <StackLayout Orientation="Horizontal" >
+                                                <Button Text="+" WidthRequest="40"/>
+                                                <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Green" VerticalOptions="Center"/>
+                                                <Button Text="-" WidthRequest="40"/>
+                                            </StackLayout>
+                                            
+                                        </StackLayout>
 
-                                        <Label Text="{Binding Image}" Grid.Column="0" FontSize="Body"
-                                       TextColor="Green"/>
-                                        <Label Text="{Binding ProductName}" Grid.Column="1" FontSize="Body"
-                                       TextColor="Green"/>
-                                        <Label Text="{Binding Price}" Grid.Column="2" FontSize="Body"
-                                       TextColor="Green"/>
-                                        <Label Text="{Binding Quantity}" Grid.Column="3" FontSize="Body"
-                                       TextColor="Green"/>
-                                        <Label Text="{Binding Cost}" Grid.Column="4" FontSize="Body"
-                                       TextColor="Green"/>
+
                                     </Grid>
                                 </ViewCell.View>
                             </ViewCell>

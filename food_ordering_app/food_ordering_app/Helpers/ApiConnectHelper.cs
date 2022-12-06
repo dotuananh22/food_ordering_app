@@ -10,7 +10,7 @@ namespace food_ordering_app.Helpers
 
         public ApiConnectHelper()
         {
-            ENV_HOST = "http://192.168.1.17:3500/";
+            ENV_HOST = "http://192.168.1.6:3500/";
         }
     }
 }
