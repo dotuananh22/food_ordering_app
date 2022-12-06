@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using Xamarin.Forms;
 
-namespace food_ordering_app.Helpers
+namespace food_ordering_app.Convert
 {
     class TotalCostConverter : IValueConverter
     {

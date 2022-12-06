@@ -4,7 +4,8 @@
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converter='clr-namespace:food_ordering_app.Convert'
-             x:Class="food_ordering_app.Views.CategoryView">
+             x:Class="food_ordering_app.Views.SearchProductsView"
+             Title='Tìm kiếm'>
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:PriceConverter x:Key='priceConverter' />
@@ -19,15 +20,13 @@
                 <RowDefinition Height='*'/>
             </Grid.RowDefinitions>
 
-            <Image Grid.Row='0' Source='{Binding SelectedCategory.ImageUrl}'
-                   Aspect='AspectFill' VerticalOptions='Start'/>
-            <Label Grid.Row='1' Text='{Binding SelectedCategory.categoryName}'
-                   TextColor='Black' FontAttributes='Italic' FontSize='35'
-                   Margin='25,-85,0,0'/>
             <ImageButton Source='{FontImage FontFamily=FontAwesome,
                 Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=Black}'
                          Grid.Row='0' HorizontalOptions='Start' Aspect='AspectFill'
-                         VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
+                         VerticalOptions='Start' Margin='10,30, 10, 0' Clicked='ImageButton_Clicked'/>
+            <SearchBar Placeholder='Tìm kiếm' Margin='0,0,0,40'
+                       BackgroundColor='Transparent' HorizontalOptions='Fill'
+                       Grid.Row='1'/>
 
             <pancake:PancakeView Grid.Row='2' CornerRadius='30'
                                  BackgroundColor='White' Margin='0,-40'>

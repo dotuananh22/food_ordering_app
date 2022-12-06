@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancake ="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:helpers ="clr-namespace:food_ordering_app.Helpers"
+             xmlns:converter='clr-namespace:food_ordering_app.Convert'
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
@@ -11,7 +12,7 @@
             >
     <ContentPage.Resources>
         <ResourceDictionary>
-            <helpers:TotalCostConverter x:Key='totalCostConverter' />
+            <converter:TotalCostConverter x:Key='totalCostConverter' />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>

@@ -27,12 +27,6 @@
                          Clicked="ImageButton_Clicked"/>
             <StackLayout Grid.Row="2" Spacing="10" Padding="10"
                          VerticalOptions="Start">
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="ID sản phẩm: " FontSize="Subtitle"
-                           />
-                    <Label Text="{Binding SelectedFoodItem._id}" FontSize="Subtitle"
-                           TextColor="Purple"/>
-                </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Label Text="Tên sản phẩm: " FontSize="Subtitle"

@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              xmlns:helpers='clr-namespace:food_ordering_app.Helpers'
+             xmlns:converter='clr-namespace:food_ordering_app.Convert'
              x:Class="food_ordering_app.Views.HeaderContentView">
-    <ContentPage.Resources>
+    <ContentView.Resources>
         <ResourceDictionary>
-            <helpers:NameConverter x:Key='nameConverter' />
-            <helpers:AddressConverter x:Key='addressConverter' />
-            <helpers:PhoneNumberConverter x:Key='phoneNumberConverter' />
+            <converter:UsernameConverter x:Key='nameConverter' />
+            <converter:AddressConverter x:Key='addressConverter' />
+            <converter:PhoneNumberConverter x:Key='phoneNumberConverter' />
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentView.Resources>
     <ContentView.BindingContext>
         <vm:UserViewModel/>
     </ContentView.BindingContext>
