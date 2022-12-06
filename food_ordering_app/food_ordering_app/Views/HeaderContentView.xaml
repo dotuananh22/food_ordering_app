@@ -2,7 +2,15 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
+             xmlns:helpers='clr-namespace:food_ordering_app.Helpers'
              x:Class="food_ordering_app.Views.HeaderContentView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:NameConverter x:Key='nameConverter' />
+            <helpers:AddressConverter x:Key='addressConverter' />
+            <helpers:PhoneNumberConverter x:Key='phoneNumberConverter' />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentView.BindingContext>
         <vm:UserViewModel/>
     </ContentView.BindingContext>
@@ -21,7 +29,7 @@
             </Grid.ColumnDefinitions>
             <Image Aspect="AspectFill" Source="logo.png" 
                    BackgroundColor="AliceBlue" 
-                   Opacity="0.6" 
+                   Opacity="0.3" 
                    Grid.ColumnSpan="5" 
                    Grid.RowSpan="4"/>
             <StackLayout Grid.Column="1" Grid.Row="1" >
@@ -43,13 +51,16 @@
                          Margin="10,0,0,0" Orientation="Vertical">
                 <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Username}" TextColor="Black" FontAttributes="Bold"/>
+                       Text="{Binding Username, Converter={StaticResource nameConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
                 <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Address}" TextColor="Black" FontAttributes="Bold"/>
+                       Text="{Binding Address, Converter={StaticResource addressConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
                 <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Telephone}" TextColor="Black" FontAttributes="Bold"/>
+                       Text="{Binding Telephone, Converter={StaticResource phoneNumberConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
             </StackLayout>
         </Grid>
     </ContentView.Content>

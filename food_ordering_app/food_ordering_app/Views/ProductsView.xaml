@@ -5,6 +5,11 @@
              xmlns:helpers="clr-namespace:food_ordering_app.Helpers"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.ProductsView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helpers:PriceConverter x:Key='priceConverter' />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:ProductsViewModel/>
     </ContentPage.BindingContext>
@@ -110,7 +115,7 @@
 
                                 <Frame Grid.Row='1' Margin='20,-80,20,70' BackgroundColor='White'
                                        CornerRadius='15' HorizontalOptions='End'>
-                                    <Label Text="{Binding price, StringFormat='{0:c}'}"
+                                    <Label Text="{Binding price, Converter={StaticResource priceConverter}}"
                                            FontSize='Medium' FontAttributes='Bold'
                                            TextColor='Black' HeightRequest='20'/>
                                 </Frame>

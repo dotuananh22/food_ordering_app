@@ -10,7 +10,7 @@
     </Shell.FlyoutHeader>
 
     <FlyoutItem Title="Trang chủ" 
-                Shell.TabBarIsVisible="True"
+                Shell.TabBarIsVisible="False"
                 FlyoutDisplayOptions="AsMultipleItems">
         <Tab Title="Trang chủ" Icon="HomeIcon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
