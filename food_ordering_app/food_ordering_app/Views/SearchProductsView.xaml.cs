@@ -12,10 +12,10 @@ using Xamarin.Forms.Xaml;
 namespace food_ordering_app.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoryView : ContentPage
+    public partial class SearchProductsView : ContentPage
     {
         CategoryViewModel cvm;
-        public CategoryView(Category category)
+        public SearchProductsView(Category category)
         {
             InitializeComponent();
             cvm = new CategoryViewModel(category);

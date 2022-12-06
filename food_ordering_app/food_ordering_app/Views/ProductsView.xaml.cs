@@ -29,5 +29,10 @@ namespace food_ordering_app.Views
             await Navigation.PushModalAsync(new CategoryView(category));
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        private void searchProduct_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }
