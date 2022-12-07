@@ -15,7 +15,6 @@ namespace food_ordering_app.Views
         public CartView()
         {
             InitializeComponent();
-            LabelName.Text = "Xin chào, " + Preferences.Get("Username", "Guest");
         }
 
         async private void ImageButton_Clicked(object sender, EventArgs e)

@@ -19,17 +19,9 @@
         <vm:CartViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-       
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-                <Label x:Name="LabelName" FontSize="Subtitle" TextColor="Black"
-                   HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0"/>
-                <pancake:PancakeView Grid.Row="1" CornerRadius="60,60,60,60">
+
+        <StackLayout Orientation="Vertical">
+            <pancake:PancakeView Grid.Row="1" CornerRadius="60,60,60,60">
                     <ListView x:Name="ListViewCartItems" Margin="10"
                           SeparatorVisibility="None"
                           ItemsSource="{Binding CartItems}" Header=""
@@ -76,7 +68,7 @@
                  <Button Text="Đặt hàng" TextColor="Black" Margin='0,0,0,4' Grid.Row="3"
                     Command="{Binding PlcaeOrderCommand}"
                     HorizontalOptions="Center" CornerRadius="20"/>
-            </Grid>
+            </StackLayout>
            
        
     </ContentPage.Content>
