@@ -1,4 +1,5 @@
 ﻿using food_ordering_app.Model;
+using food_ordering_app.Services;
 using food_ordering_app.Views;
 using System;
 using System.Collections.Generic;
@@ -30,9 +31,20 @@ namespace food_ordering_app.Views
             ((CollectionView)sender).SelectedItem = null;
         }
 
-        private void searchProduct_TextChanged(object sender, TextChangedEventArgs e)
+        private async  void  searchProduct_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            SearchBar searchBar = (SearchBar)sender;
+            var result = await new FoodItemService().SearchFoodItems(searchBar.Text);
+            CVItems.ItemsSource = result;
+        }
+
+        private async void CVItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProduct = e.CurrentSelection.FirstOrDefault() as FoodItem;
+            if (selectedProduct == null)
+                return;
+            await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
+            ((CollectionView)sender).SelectedItem = null;
         }
     }
 }

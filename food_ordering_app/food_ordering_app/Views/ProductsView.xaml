@@ -26,48 +26,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width='*'/>
             </Grid.ColumnDefinitions>
-
-            <!--<Grid Grid.Row='0'>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height='Auto'/>
-                    <RowDefinition Height='Auto'/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width='*'/>
-                    <ColumnDefinition Width='Auto'/>
-                    <ColumnDefinition Width='Auto'/>
-                    <ColumnDefinition Width='Auto'/>
-                </Grid.ColumnDefinitions>
-
-                <Label Text='Welcome ' Grid.Row='0' Grid.Column='0'
-                       FontSize='18' TextColor='Silver'/>
-                <Label Text='{Binding Username}' Grid.Row='1' Grid.Column='0'
-                       FontSize='20' FontAttributes='Bold'/>
-
-                <ImageButton Grid.Row='0' Grid.Column='1' Grid.RowSpan='2'
-                             Source='{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.ViewList}, Size=40,Color=Purple}'
-                             Margin='0,0,10,0' HorizontalOptions='End'/>
-
-                <Label Text='{Binding UserCartItemsCount}' FontSize='Subtitle'
-                       Grid.Row='0' Grid.Column='2' Grid.RowSpan='2'
-                       HorizontalTextAlignment='End' VerticalTextAlignment='Start'/>
-
-                <ImageButton Grid.Row='0' Grid.Column='2' Grid.RowSpan='2'
-                             Source='{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.Shopping}, Size=40,Color=Green}'
-                             Margin='0,0,10,0' HorizontalOptions='End'
-                             Command='{Binding ViewCartCommand}'/>
-
-                <ImageButton Grid.Row='0' Grid.Column='3' Grid.RowSpan='2'
-                             Source='{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.Logout}, Size=40,Color=Red}'
-                             Margin='0,0,10,0' HorizontalOptions='End'
-                             Command='{Binding LogoutCommand}'/>
-            </Grid>-->
-
-
-
             <SearchBar Placeholder='Tìm kiếm'
                        BackgroundColor='Transparent' HorizontalOptions='Fill'
                        x:Name='searchProduct' TextChanged='searchProduct_TextChanged'/>
@@ -100,6 +58,9 @@
             <CollectionView ItemsSource='{Binding LatestItems}'
                             Margin='0,20,10,0' VerticalOptions='Start'
                             VerticalScrollBarVisibility='Never'
+                            SelectionChanged="CVItems_SelectionChanged"
+                            SelectionMode="Single"
+                            x:Name="CVItems"
                             Grid.Row='4'>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -121,20 +82,21 @@
                                            FontSize='Medium' FontAttributes='Bold'
                                            TextColor='Black' HeightRequest='20'/>
                                 </Frame>
-
-                                <Label Grid.Row='1' Text='{Binding name}' 
+                                <StackLayout Grid.Row='1' Orientation="Horizontal" Margin="10">
+                                    <Label Text='{Binding name}' 
                                        FontSize='22' FontAttributes='Bold'
                                        VerticalTextAlignment='Center'/>
-                                <Image Grid.Row='2' Source='Star.png' HorizontalOptions='Start'
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label Text='{Binding rating}' 
+                                       FontSize='15' FontAttributes='Bold'
+                                       VerticalTextAlignment='Center'/>
+                                        <Image Source='Star.png' HorizontalOptions='Start'
                                        WidthRequest='20'/>
-                                <Label Grid.Row='2' Margin='30,0,0,0' 
-                                       FontSize='15' VerticalOptions='Center'>
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text='{Binding rating}' FontAttributes='Bold'/>
-                                            <Span Text='{Binding description}' TextColor='#a4a7b6'/>
-                                        </FormattedString>
-                                    </Label.FormattedText>
+                                    </StackLayout>
+                                </StackLayout>
+                                <Label Grid.Row='2' Margin='10' 
+                                       FontSize='16' VerticalOptions='Center'
+                                       Text='{Binding description}'>
                                 </Label>
                             </Grid>
                         </StackLayout>

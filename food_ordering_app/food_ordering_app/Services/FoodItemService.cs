@@ -55,5 +55,17 @@ namespace food_ordering_app.Services
             foodItem = JsonConvert.DeserializeObject<FoodItem>(res);
             return foodItem;
         }
+
+        public async Task<ObservableCollection<FoodItem>> SearchFoodItems(string keyword)
+        {
+            var resultCV = new ObservableCollection<FoodItem>();
+            var res = await client.GetStringAsync(host.ENV_HOST + "foodItems/search/?keyword=" + keyword.ToString());
+            var result = JsonConvert.DeserializeObject<List<FoodItem>>(res);
+            foreach(var item in result)
+            {
+                resultCV.Add(item);
+            }
+            return resultCV;
+        }
     }
 }

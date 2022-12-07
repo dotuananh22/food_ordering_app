@@ -22,11 +22,13 @@
 
         <StackLayout Orientation="Vertical">
             <pancake:PancakeView Grid.Row="1" CornerRadius="60,60,60,60">
-                    <ListView x:Name="ListViewCartItems" Margin="10"
+                <ListView x:Name="ListViewCartItems" Margin="10"
                           SeparatorVisibility="None"
                           ItemsSource="{Binding CartItems}" Header=""
+                          SelectionMode="Single"
+                          SelectedItem=""
                           HasUnevenRows="True">
-                        <ListView.ItemTemplate>
+                    <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <ViewCell.View>
@@ -51,7 +53,7 @@
                                             <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
                                             <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                                                 <Button Text="-" WidthRequest="60"/>
-                                                <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
+                                                <Label Text="{Binding Quantity}" FontSize="Body" WidthRequest="60" TextColor="Black" VerticalOptions="Center"/>
                                                 <Button Text="+" WidthRequest="60"/>
                                             </StackLayout>
                                         </Grid>

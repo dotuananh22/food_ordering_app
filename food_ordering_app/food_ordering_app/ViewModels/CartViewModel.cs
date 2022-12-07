@@ -27,6 +27,20 @@ namespace food_ordering_app.ViewModels
             }
         }
 
+        public decimal _TotalItems;
+        public decimal TotalItems
+        {
+            set
+            {
+                _TotalItems = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _TotalItems;
+            }
+        }
+
         public Command PlcaeOrderCommand { get; set; }
         public CartViewModel()
         {
