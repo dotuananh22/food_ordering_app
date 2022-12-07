@@ -40,9 +40,9 @@
                                             </Grid.ColumnDefinitions>
 
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
                                             </Grid.RowDefinitions>
 
                                             <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
@@ -53,7 +53,7 @@
                                             <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
                                             <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                                                 <Button Text="-" WidthRequest="60"/>
-                                                <Label Text="{Binding Quantity}" FontSize="Body" WidthRequest="60" TextColor="Black" VerticalOptions="Center"/>
+                                                <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
                                                 <Button Text="+" WidthRequest="60"/>
                                             </StackLayout>
                                         </Grid>
@@ -63,11 +63,12 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </pancake:PancakeView>
-                    
-                 <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
+
+                <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
                    HorizontalTextAlignment="End" FontSize="Title" Grid.Row="2"
                    TextColor="Black"/>
-                 <Button Text="Đặt hàng" TextColor="Black" Margin='0,0,0,4' Grid.Row="3"
+                 <Button Text="Đặt hàng" TextColor="White" WidthRequest="200" Margin='0,0,0,4' Grid.Row="3"
+                         BackgroundColor="CadetBlue"
                     Command="{Binding PlcaeOrderCommand}"
                     HorizontalOptions="Center" CornerRadius="20"/>
             </StackLayout>

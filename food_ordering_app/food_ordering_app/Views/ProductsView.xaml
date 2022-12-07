@@ -69,7 +69,7 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height='Auto'/>
                                     <RowDefinition Height='Auto'/>
-                                    <RowDefinition Height='Auto'/>
+                                    <!--<RowDefinition Height='Auto'/>-->
                                 </Grid.RowDefinitions>
 
                                 <pancake:PancakeView Grid.Row='0' CornerRadius='20' Margin='0,0,10,0'>
@@ -94,10 +94,10 @@
                                        WidthRequest='20'/>
                                     </StackLayout>
                                 </StackLayout>
-                                <Label Grid.Row='2' Margin='10' 
+                                <!--<Label Grid.Row='2' Margin='10' 
                                        FontSize='16' VerticalOptions='Center'
                                        Text='{Binding description}'>
-                                </Label>
+                                </Label>-->
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
