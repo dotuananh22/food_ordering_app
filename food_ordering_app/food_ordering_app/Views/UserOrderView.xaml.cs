@@ -1,4 +1,5 @@
-﻿using food_ordering_app.ViewModels;
+﻿using food_ordering_app.Model;
+using food_ordering_app.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,8 @@ namespace food_ordering_app.Views
 
         private async void ListViewCartItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new DetailOrderView());
+            var selectedOrder = e.CurrentSelection.FirstOrDefault() as UserOrder;
+            await Navigation.PushAsync(new DetailOrderView(selectedOrder._id));
         }
     }
 }

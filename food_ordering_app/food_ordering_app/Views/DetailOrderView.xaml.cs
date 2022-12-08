@@ -1,4 +1,5 @@
-﻿using System;
+﻿using food_ordering_app.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace food_ordering_app.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailOrderView : ContentPage
     {
-        public DetailOrderView()
+        DetailOrderViewModel dovm;
+        public DetailOrderView( string orderId)
         {
             InitializeComponent();
+            dovm = new DetailOrderViewModel(orderId);
+            this.BindingContext = dovm;
         }
     }
 }

@@ -77,5 +77,13 @@ namespace food_ordering_app.Services
             var resultUserOrder = JsonConvert.DeserializeObject<ObservableCollection<UserOrder>>(resUserOrderData);
             return resultUserOrder;
         }
+
+        public async Task<ObservableCollection<ItemOrderDetail>> GetDetailOrder(string orderId)
+        {
+            var data = new ObservableCollection<ItemOrderDetail>();
+            var resItemsOrderDetail = await client.GetStringAsync(host.ENV_HOST + "order-detail/" + orderId.ToString());
+            var resultItemsOrderDetail = JsonConvert.DeserializeObject<ObservableCollection<ItemOrderDetail>>(resItemsOrderDetail);
+            return resultItemsOrderDetail;
+        }
     }
 }
