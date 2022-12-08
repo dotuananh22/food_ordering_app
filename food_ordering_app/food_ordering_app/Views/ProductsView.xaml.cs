@@ -18,7 +18,7 @@ namespace food_ordering_app.Views
         public ProductsView()
         {
             InitializeComponent();
-            this.Title = "Trang chủ";
+            this.Title = "ANHHOA FOOD";
         }
 
         private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)

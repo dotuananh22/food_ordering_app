@@ -20,7 +20,7 @@
                        WidthRequest='100' HeightRequest='200'/>
 
                 <Label Text='Đăng ký mới' FontFamily='CabinSketch'
-                       TextColor='Purple' FontSize='40' HorizontalOptions='Center' />
+                       TextColor='DeepSkyBlue' FontSize='40' HorizontalOptions='Center' />
             </StackLayout>
 
             <StackLayout Grid.Row='1' Spacing='10'>
@@ -33,9 +33,9 @@
                 <Entry Placeholder='Nhập số điện thoại' Text="{Binding Telephone}"
                        Keyboard='Numeric'/>
 
-                <Button Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='DarkOrange'
+                <Button Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='DeepSkyBlue'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
-                        CornerRadius='20'
+                        CornerRadius='20' FontAttributes='Bold'
                         Command="{Binding RegisterCommand}"
                        />
             </StackLayout>
