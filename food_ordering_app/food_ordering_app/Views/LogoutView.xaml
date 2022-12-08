@@ -19,17 +19,17 @@
             <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0" Grid.Row="0">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <StackLayout IsVisible="{Binding IsCartExists}">
-                        <Label Text="Cart, is not Empty"/>
-                        <Label Text="{Binding UserCartItemCount, StringFormat='Your Cart Contains {0} items'}"/>
+                        <Label Text="Có sản phẩm trong giỏ hàng!"/>
+                        <Label Text="{Binding UserCartItemCount, StringFormat='Giỏ hàng của bản có {0} sản phẩm'}"/>
                     </StackLayout>
 
                     <StackLayout>
                         <Label Text="Bạn có chắc chắn muốn đăng xuất?"/>
                         <StackLayout Orientation="Horizontal" Spacing="10">
-                            <Button Text="Yes, Logout" HorizontalOptions="Center"
+                            <Button Text="Đăng xuất" HorizontalOptions="Center"
                                     BackgroundColor="Red" CornerRadius="20"
                                     Command="{Binding LogoutCommand}"/>
-                            <Button Text="No, Go To Cart" HorizontalOptions="Center"
+                            <Button Text="Trang chủ" HorizontalOptions="Center"
                                     BackgroundColor="LightGreen" CornerRadius="20"
                                     Command="{Binding GoHomeCommand}"/>
                         </StackLayout>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
@@ -69,39 +70,12 @@ namespace food_ordering_app.Services
             }
             return resultOrder;
         }
-        //public async Task<string> PlaceOrderAsync()
-        //{
-        //    var cn = DependencyService.Get<ISQLite>().GetConnection();
-        //    var data = cn.Table<CartItem>().ToList();
-
-        //    var orderId = Guid.NewGuid().ToString();
-        //    var uname = Preferences.Get("Username", "Guest");
-
-        //    decimal totalCost = 0;
-
-        //    foreach(var item in data)
-        //    {
-        //        OrderDetails od = new OrderDetails()
-        //        {
-        //            OrderId = orderId,
-        //            OrderDetailId = Guid.NewGuid().ToString(),
-        //            ProductID = item.ProductId,
-        //            ProductName = item.ProductName,
-        //            Price = item.Price,
-        //            Quantity = item.Quantity,
-        //        };
-        //        totalCost += item.Price * item.Quantity;
-        //        await client.Child("OrderDetails").PostAsync(od);
-        //    }
-
-        //    await client.Child("Orders").PostAsync(
-        //        new Order()
-        //        {
-        //            OrderId=orderId,
-        //            Username= uname,
-        //            TotalCost= totalCost
-        //        });
-        //    return orderId;
-        //}
+        public async Task<ObservableCollection<UserOrder>> GetOrderByUserId(string userId)
+        {
+            var data = new ObservableCollection<UserOrder>();
+            var resUserOrderData = await client.GetStringAsync(host.ENV_HOST + userId.ToString());
+            var resultUserOrder = JsonConvert.DeserializeObject<ObservableCollection<UserOrder>>(resUserOrderData);
+            return resultUserOrder;
+        }
     }
 }
