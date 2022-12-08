@@ -103,9 +103,16 @@ namespace food_ordering_app.ViewModels
         private async Task PlcaeOrderAsync()
         {
             //code to place order
-            var id = await new OrderService().PlaceOrderAsync() as string;
-            RemoveItemsFromCart();
-            await Application.Current.MainPage.Navigation.PushModalAsync(new OrdersView(id));
+            Message result = await new OrderService().PlaceOrderAsync(Address, Telephone) as Message;
+            if (result.errorCode == "0")
+            {
+                RemoveItemsFromCart();
+                await Application.Current.MainPage.Navigation.PushModalAsync(new OrdersView(result.message));
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Đặt hàng", "Đặt hàng thất bại! Vui lòng thử lại", "Ok");
+            }
         }
 
         private void RemoveItemsFromCart()

@@ -21,7 +21,7 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height='Auto'/>
+                <RowDefinition Height='200'/>
                 <RowDefinition Height='Auto'/>
                 <RowDefinition Height='*'/>
             </Grid.RowDefinitions>
@@ -53,7 +53,7 @@
                 </StackLayout>
             </pancake:PancakeView>
 
-            <StackLayout Orientation="Vertical" Grid.Row='2'>
+            <StackLayout Orientation="Vertical" Grid.Row='2' Margin="0,35,0,0">
                 <pancake:PancakeView>
                     <CollectionView SelectionMode="Single"
                             x:Name="ListViewCartItems"

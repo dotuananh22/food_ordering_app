@@ -6,11 +6,9 @@ namespace food_ordering_app.Model
 {
     public class OrderDetails
     {
-        public string OrderDetailId { get; set; }
-        public string OrderId { get; set; }
-        public string ProductID { get; set; }
-        public string ProductName { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
+        public string _id { get; set; }
+        public string orderId { get; set; }
+        public string productId { get; set; }
+        public int quantity { get; set; }
     }
 }
