@@ -20,18 +20,19 @@
                          VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked"/>
             <Label Text="Burger Queen" FontSize="40" TextColor="WhiteSmoke"
                    FontFamily="CabinSketch" HorizontalOptions="Center" VerticalOptions="Start"/>
-            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="WhiteSmoke"
+            <Label x:Name="LabelName" FontSize="30" Margin="20,0" TextColor="WhiteSmoke"
                    HorizontalOptions="Center" VerticalOptions="End"/>
 
             <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0" Grid.Row="1">
-                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label Text="Thanks for placing an order with us."/>
-                    <Label Text="Please note down your Order ID for futher Tracking"/>
-                    <Label x:Name="LabelOrderID" TextColor="Purple"
-                           FontSize="Subtitle"/>
-                    <Button Text="View All Products" WidthRequest="200" BackgroundColor="Purple"
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="15">
+                    <Label Text="Cảm ơn bạn đã đặt hàng của chúng tôi!" FontSize="20"/>
+                    <Label Text="Vui lòng ghi lại ID đơn hàng của bạn để theo dõi thêm" FontSize="20"/>
+                    <Label x:Name="LabelOrderID" TextColor="Blue"
+                           FontSize="20"/>
+                    <Button Text="Trang chủ" WidthRequest="200" BackgroundColor="CadetBlue"
                             HorizontalOptions="Center"
-                            CornerRadius="20" Clicked="Button_Clicked"
+                            Command="{Binding HomeCommand}"
+                            CornerRadius="20"
                             />
                 </StackLayout>
             </pancake:PancakeView>

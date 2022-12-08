@@ -111,7 +111,7 @@ namespace food_ordering_app.ViewModels
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Đặt hàng", "Đặt hàng thất bại! Vui lòng thử lại", "Ok");
+                await Application.Current.MainPage.DisplayAlert("Đặt hàng", result.message, "Ok");
             }
         }
 

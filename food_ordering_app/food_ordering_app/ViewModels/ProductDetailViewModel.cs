@@ -99,12 +99,12 @@ namespace food_ordering_app.ViewModels
                 }
                 cn.Commit();
                 cn.Close();
-                Application.Current.MainPage.DisplayAlert("Cart", "Selected Item Added to Cart", "OK");
+                Application.Current.MainPage.DisplayAlert("Giỏ hàng", "Thêm vào giỏ hàng thành công", "OK");
                 
             }
             catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+                Application.Current.MainPage.DisplayAlert("Lỗi", ex.Message, "OK");
             }
             finally
             {

@@ -30,6 +30,10 @@ namespace food_ordering_app.Services
             var data = cn.Table<CartItem>().ToList();
             var user = Preferences.Get("UserId", "Guest");
             decimal totalCost = 0;
+            foreach (var item in data)
+            {
+                totalCost += item.Price * item.Quantity;
+            }
             List<OrderDetails> listOrderDetail = new List<OrderDetails>();
           
             var order = new
@@ -40,7 +44,7 @@ namespace food_ordering_app.Services
                 telephone = telephone,
             };
             JsonContent dataSent = JsonContent.Create(order);
-            var resOrder = await client.PostAsync(host.ENV_HOST + "/orders", dataSent);
+            var resOrder = await client.PostAsync(host.ENV_HOST + "orders", dataSent);
             var resOrderContent = await resOrder.Content.ReadAsStringAsync();
             Message resultOrder = JsonConvert.DeserializeObject<Message>(resOrderContent);
 
@@ -55,14 +59,13 @@ namespace food_ordering_app.Services
                         quantity = item.Quantity,
                     };
                     listOrderDetail.Add(od);
-                    totalCost += item.Price * item.Quantity;
                 }
                 var dataOrderDetailsSent = new
                 {
                     arrOrderDetail = listOrderDetail
                 };
                 JsonContent dataOrderDetailsSentJson = JsonContent.Create(dataOrderDetailsSent);
-                await client.PostAsync(host.ENV_HOST + "/order-detail", dataOrderDetailsSentJson);
+                await client.PostAsync(host.ENV_HOST + "order-detail", dataOrderDetailsSentJson);
             }
             return resultOrder;
         }

@@ -35,22 +35,40 @@
 
             <pancake:PancakeView Grid.Row='1' CornerRadius='30'
                                  BackgroundColor='AliceBlue' Margin='0,-40'>
-                <StackLayout VerticalOptions="CenterAndExpand"
+                <Grid VerticalOptions="CenterAndExpand"
                          Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
-                         Margin="10,0,0,0" Orientation="Vertical">
+                         Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
                     <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Username, Converter={StaticResource nameConverter}}" 
+                       Text="Tên" 
+                       Grid.Row="0"
+                       Grid.Column="0"
                        TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
+                    <Entry Text="{Binding Username}" Grid.Row="0" Grid.Column="1"/>
                     <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Address, Converter={StaticResource addressConverter}}" 
+                       Text="Địa chỉ" 
+                       Grid.Row="1"
+                       Grid.Column="0"
                        TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
+                    <Entry Text="{Binding Address}" Grid.Row="1" Grid.Column="1"/>
                     <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
-                       Text="{Binding Telephone, Converter={StaticResource phoneNumberConverter}}" 
+                       Grid.Row="2"
+                       Grid.Column="0"
+                       Text="Số điện thoại" 
                        TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
-                </StackLayout>
+                    <Entry Text="{Binding Telephone}" Grid.Row="2" Grid.Column="1"/>
+                </Grid>
             </pancake:PancakeView>
 
             <StackLayout Orientation="Vertical" Grid.Row='2' Margin="0,35,0,0">
@@ -90,13 +108,12 @@
                 <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
                    HorizontalTextAlignment="End" FontSize="Title" Grid.Row="2"
                    TextColor="Black"/>
-                <Button x:Name="btnCheckout" 
-                    Text="Đặt hàng" 
+                <Button Text="Xác nhận" 
                     TextColor="White" WidthRequest="200" 
                     Margin='0,0,0,4' Grid.Row="3"
                     BackgroundColor="CadetBlue"
                     HorizontalOptions="Center" CornerRadius="20"
-                    Clicked="btnCheckout_Clicked"/>
+                    Command="{Binding PlcaeOrderCommand}"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
