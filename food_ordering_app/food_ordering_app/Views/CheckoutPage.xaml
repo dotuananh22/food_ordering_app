@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:helpers="clr-namespace:food_ordering_app.Helpers"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"            
+             xmlns:converter='clr-namespace:food_ordering_app.Convert'
+             x:Class="food_ordering_app.Views.CheckoutPage"
+             Title="Xác nhận đặt hàng">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height='Auto'/>
+                <RowDefinition Height='Auto'/>
+                <RowDefinition Height='*'/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row='0' Source='logo.png'
+                   Aspect='Fill' VerticalOptions='Start'/>
+            <ImageButton Source='{FontImage FontFamily=FontAwesome,
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=Black}'
+                         Grid.Row='0' HorizontalOptions='Start' Aspect='AspectFill'
+                         VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
+
+            <pancake:PancakeView Grid.Row='2' CornerRadius='30'
+                                 BackgroundColor='Red' Margin='0,-40'>
+                <StackLayout>
+                    <Label Text="Trang xác nhận thanh toán"></Label>
+                </StackLayout>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

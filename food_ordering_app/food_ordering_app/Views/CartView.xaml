@@ -19,60 +19,94 @@
         <vm:CartViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-
         <StackLayout Orientation="Vertical">
-            <pancake:PancakeView Grid.Row="1" CornerRadius="60,60,60,60">
-                <ListView x:Name="ListViewCartItems" Margin="10"
+            <pancake:PancakeView Grid.Row="1">
+                <!--<ListView x:Name="ListViewCartItems" Margin="10"
                           SeparatorVisibility="None"
                           ItemsSource="{Binding CartItems}" Header=""
                           SelectionMode="Single"
                           SelectedItem=""
                           HasUnevenRows="True">
                     <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <ViewCell.View>
-                                        <Grid Padding="10">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="150"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid Padding="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
 
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
 
-                                            <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
+                                        <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
 
-                                            <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
-                                            <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
-                                            <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
-                                            <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
-                                            <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                                                <Button Text="-" WidthRequest="60"/>
-                                                <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
-                                                <Button Text="+" WidthRequest="60"/>
-                                            </StackLayout>
-                                        </Grid>
-                                    </ViewCell.View>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </pancake:PancakeView>
+                                        <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                                        <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
+                                        <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                                        <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                            <Button Text="-" WidthRequest="60"/>
+                                            <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
+                                            <Button Text="+" WidthRequest="60"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+                <CollectionView SelectionMode="Single"
+                            x:Name="ListViewCartItems"
+                            Grid.Row='4'
+                            ItemsSource="{Binding CartItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
+
+                                <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
+                                <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
+                                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
+                                    <Button Text="-" WidthRequest="60"/>
+                                    <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
+                                    <Button Text="+" WidthRequest="60"/>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </pancake:PancakeView>
+
+            <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
                    HorizontalTextAlignment="End" FontSize="Title" Grid.Row="2"
                    TextColor="Black"/>
-                 <Button Text="Đặt hàng" TextColor="White" WidthRequest="200" Margin='0,0,0,4' Grid.Row="3"
-                         BackgroundColor="CadetBlue"
-                    Command="{Binding PlcaeOrderCommand}"
-                    HorizontalOptions="Center" CornerRadius="20"/>
-            </StackLayout>
-           
-       
+            <Button x:Name="btnCheckout" 
+                    Text="Đặt hàng" 
+                    TextColor="White" WidthRequest="200" 
+                    Margin='0,0,0,4' Grid.Row="3"
+                    BackgroundColor="CadetBlue"
+                    HorizontalOptions="Center" CornerRadius="20"
+                    Clicked="btnCheckout_Clicked"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
