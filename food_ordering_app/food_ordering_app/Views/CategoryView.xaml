@@ -22,7 +22,7 @@
             <Image Grid.Row='0' Source='{Binding SelectedCategory.ImageUrl}'
                    Aspect='AspectFill' VerticalOptions='Start'/>
             <Label Grid.Row='1' Text='{Binding SelectedCategory.categoryName}'
-                   TextColor='Black' FontAttributes='Italic' FontSize='35'
+                   TextColor='Black' FontAttributes='Italic,Bold' FontSize='35'
                    Margin='25,-85,0,0'/>
             <ImageButton Source='{FontImage FontFamily=FontAwesome,
                 Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=Black}'
@@ -42,7 +42,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row='0' Grid.Column='0' Text="{Binding TotalFoodItems,
-                        StringFormat='Có {0} sản phẩm'}" FontSize='18' FontAttributes='Bold'/>
+                        StringFormat='Có {0} sản phẩm'}" FontSize='20' FontAttributes='Bold'/>
                     <Image Grid.Row='0' Grid.Column='1' Source='More'/>
 
                     <CollectionView ItemsSource='{Binding FoodItemsByCategory}'

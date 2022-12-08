@@ -17,7 +17,7 @@ namespace food_ordering_app.Views
         public OrdersView(string id)
         {
             InitializeComponent();
-            LabelName.Text = "Xin chào " + Preferences.Get("Username", "Guest") + " ,";
+            LabelName.Text = "Xin chào " + Preferences.Get("Username", "Guest");
             LabelOrderID.Text = id;
             ovm = new OrderViewModel();
             this.BindingContext = ovm;

@@ -99,7 +99,7 @@ namespace food_ordering_app.ViewModels
                 }
                 cn.Commit();
                 cn.Close();
-                Application.Current.MainPage.DisplayAlert("Giỏ hàng", "Thêm vào giỏ hàng thành công", "OK");
+                Application.Current.MainPage.DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
                 
             }
             catch (Exception ex)

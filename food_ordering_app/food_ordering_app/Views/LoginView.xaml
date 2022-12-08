@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.LoginView"
-             Title="Đăng nhập"
+             Title="ANHHOA FOOD"
              BackgroundColor="White"
              Visual='Material'>
     <ContentPage.BindingContext>
@@ -21,7 +21,7 @@
                        WidthRequest='100' HeightRequest='200'/>
 
                 <Label Text='Đăng nhập' FontFamily='CabinSketch'
-                       TextColor='Purple' FontSize='40' HorizontalOptions='Center' />
+                       TextColor='DeepSkyBlue' FontSize='40' HorizontalOptions='Center' />
             </StackLayout>
 
             <StackLayout Grid.Row='1' Spacing='10'>
@@ -30,14 +30,14 @@
                 <Entry Placeholder='Nhập mật khẩu' Text='{Binding Password}' IsPassword='True'
                        Keyboard='Default'/>
 
-                <Button Text='Đăng nhập' HorizontalOptions='Center' BackgroundColor='Purple'
+                <Button Text='Đăng nhập' HorizontalOptions='Center' BackgroundColor='DeepSkyBlue'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
-                        CornerRadius='20'
+                        CornerRadius='20' FontAttributes='Bold'
                         Command='{Binding LoginCommand}'/>
 
                 <Label Text='Bạn chưa có tài khoản?'/>
 
-                <Button x:Name="btnRegister" Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='DarkOrange'
+                <Button x:Name="btnRegister" Text='Đăng ký' HorizontalOptions='Center' BackgroundColor='LimeGreen'
                         TextColor='White' WidthRequest='200' HeightRequest='60'
                         CornerRadius='20'
                         Clicked="btnRegister_Clicked"/>

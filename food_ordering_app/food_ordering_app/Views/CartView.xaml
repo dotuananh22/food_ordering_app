@@ -22,46 +22,6 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <pancake:PancakeView Grid.Row="1">
-                <!--<ListView x:Name="ListViewCartItems" Margin="10"
-                          SeparatorVisibility="None"
-                          ItemsSource="{Binding CartItems}" Header=""
-                          SelectionMode="Single"
-                          SelectedItem=""
-                          HasUnevenRows="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ViewCell.View>
-                                    <Grid Padding="10">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="150"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                            <RowDefinition Height="*"/>
-                                        </Grid.RowDefinitions>
-
-                                        <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
-
-                                        <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
-                                        <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
-                                        <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
-                                        <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
-                                        <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                                            <Button Text="-" WidthRequest="60"/>
-                                            <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
-                                            <Button Text="+" WidthRequest="60"/>
-                                        </StackLayout>
-                                    </Grid>
-                                </ViewCell.View>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
                 <CollectionView SelectionMode="Single"
                             x:Name="ListViewCartItems"
                             Grid.Row='4'
@@ -102,10 +62,10 @@
                    HorizontalTextAlignment="End" FontSize="Title" Grid.Row="2"
                    TextColor="Black"/>
             <Button x:Name="btnCheckout" 
-                    Text="Đặt hàng" 
+                    Text="Đặt hàng"  FontAttributes='Bold' FontSize='20'
                     TextColor="White" WidthRequest="200" 
-                    Margin='0,0,0,4' Grid.Row="3"
-                    BackgroundColor="CadetBlue"
+                    Margin='0,4,0,8' Grid.Row="3"
+                    BackgroundColor="DeepSkyBlue"
                     HorizontalOptions="Center" CornerRadius="20"
                     Clicked="btnCheckout_Clicked"/>
         </StackLayout>

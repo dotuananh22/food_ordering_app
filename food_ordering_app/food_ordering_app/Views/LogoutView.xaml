@@ -30,7 +30,7 @@
                                     BackgroundColor="Red" CornerRadius="20"
                                     Command="{Binding LogoutCommand}"/>
                             <Button Text="Trang chủ" HorizontalOptions="Center"
-                                    BackgroundColor="LightGreen" CornerRadius="20"
+                                    BackgroundColor="DeepSkyBlue" CornerRadius="20"
                                     Command="{Binding GoHomeCommand}"/>
                         </StackLayout>
                     </StackLayout>

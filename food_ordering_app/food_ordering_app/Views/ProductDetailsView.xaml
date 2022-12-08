@@ -19,38 +19,40 @@
                    Aspect="AspectFill" VerticalOptions="Start"/>
             <Label Grid.Row="1" Text="{Binding SelectedFoodItem.name}"
                    TextColor="White" FontAttributes="Italic"
-                   FontSize="35" Margin="25,-85,0,0"/>
-            <ImageButton Source="{FontImage FontFamily=FontAwesome,
+                   FontSize="35" Margin="25,-65,0,0"/>
+            <!--<ImageButton Source="{FontImage FontFamily=FontAwesome,
                 Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=35,Color=Black}"
                          Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
                          VerticalOptions="Start" Margin="10,30"
-                         Clicked="ImageButton_Clicked"/>
-            <StackLayout Grid.Row="2" Spacing="10" Padding="10"
+                         Clicked="ImageButton_Clicked"/>-->
+            <Grid Grid.Row="2" Padding="10"
                          VerticalOptions="Start">
-
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Tên sản phẩm: " FontSize="Subtitle"
-                           />
-                    <Label Text="{Binding SelectedFoodItem.name}" FontSize="Subtitle"
-                           TextColor="Purple"/>
-                </StackLayout>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width='80'/>
+                    <ColumnDefinition Width='*'/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height='Auto'/>
+                    <RowDefinition Height='Auto'/>
+                    <RowDefinition Height='Auto'/>
+                </Grid.RowDefinitions>
                 
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Mô tả thêm: " FontSize="Subtitle"
-                           />
-                    <Label Text="{Binding SelectedFoodItem.description}" FontSize="Subtitle"
-                           TextColor="Purple"/>
-                </StackLayout>
+                <Label Text="Sản phẩm" FontSize="Body" FontAttributes='Bold'
+                           Grid.Row='0' Grid.Column='0'/>
+                <Label Text="{Binding SelectedFoodItem.name}" FontSize="Body"
+                           TextColor="Purple" FontAttributes='Bold'
+                           Grid.Row='0' Grid.Column='1'/>
+                <Label Text="Mô tả" FontSize="Body" FontAttributes='Bold'
+                           Grid.Row='1' Grid.Column='0' />
+                <Label Text="{Binding SelectedFoodItem.description}" FontSize="Body"
+                           TextColor="Purple" Grid.Row='1' Grid.Column='1'/>
+                <Label Text="Xếp hạng" FontSize="Body" FontAttributes='Bold'
+                           Grid.Row='2' Grid.Column='0' />
+                <Label Text="{Binding SelectedFoodItem.rating}" FontSize="Body"
+                           TextColor="Purple" Grid.Row='2' Grid.Column='1'/>
+            </Grid>
 
-                <StackLayout Orientation="Horizontal" Spacing="10">
-                    <Label Text="Xếp hạng: " FontSize="Subtitle"
-                           />
-                    <Label Text="{Binding SelectedFoodItem.rating}" FontSize="Subtitle"
-                           TextColor="Purple"/>
-                </StackLayout>
-            </StackLayout>
-
-            <Grid Grid.Row="3" HorizontalOptions="Center">
+            <Grid Grid.Row="3" HorizontalOptions="Center" Margin='0,10,0,0'>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -58,22 +60,22 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Text="-" FontSize="30"
-                        TextColor="White" BackgroundColor="Purple"
+                        TextColor="White" BackgroundColor="LimeGreen"
                         Grid.Column="0" HorizontalOptions="End"
                         Command="{Binding DecrementOrderComand}"/>
                 <Entry Text="{Binding TotalQuantity}" HorizontalTextAlignment="Center"
                        FontSize="30"
                        Grid.Column="1"/>
                 <Button Text="+" FontSize="30"
-                        TextColor="White" BackgroundColor="Purple"
+                        TextColor="White" BackgroundColor="LimeGreen"
                         Grid.Column="2" HorizontalOptions="Start"
                         Command="{Binding IncrementOrderComand}"/>
             </Grid>
 
-            <StackLayout Orientation="Horizontal" Grid.Row="4">
+            <StackLayout Orientation="Horizontal" Grid.Row="4" Margin='0,10,0,0'>
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
-                    <Button Text="Thêm vào giỏ" BackgroundColor="LimeGreen"
+                    <Button Text="Thêm vào giỏ" BackgroundColor="DeepSkyBlue" FontAttributes='Bold'
                             WidthRequest="200" HorizontalOptions="Center"
                             Command="{Binding AddToCartCommand}"
                             HeightRequest="50"/>
@@ -81,7 +83,7 @@
 
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
-                    <Button Text="Trang chủ" BackgroundColor="Orange"
+                    <Button Text="Trang chủ" BackgroundColor="DeepSkyBlue" FontAttributes='Bold'
                             WidthRequest="200" HorizontalOptions="Center"
                             Command="{Binding HomeCommand}"
                             HeightRequest="50"/>
