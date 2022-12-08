@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Đăng ký người dùng mới"
               xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
-             x:Class="food_ordering_app.Views.RegisterPage">
+             x:Class="food_ordering_app.Views.RegisterPage"
+             BackgroundColor='White'>
     <ContentPage.BindingContext>
         <vm:RegisterViewModel/>
     </ContentPage.BindingContext>

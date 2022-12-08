@@ -22,7 +22,7 @@
             <ShellContent ContentTemplate="{DataTemplate views:CartView}"></ShellContent>
         </Tab>
         <Tab Title="Đơn hàng" Icon="ordericon.png" >
-            <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate views:UserOrderView}"></ShellContent>
         </Tab>
         <Tab Title="Đăng xuất" Icon="logouticon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:LogoutView}"></ShellContent>
