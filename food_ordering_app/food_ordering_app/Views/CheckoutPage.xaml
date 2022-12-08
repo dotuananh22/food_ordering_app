@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              xmlns:helpers="clr-namespace:food_ordering_app.Helpers"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"            
              xmlns:converter='clr-namespace:food_ordering_app.Convert'
              x:Class="food_ordering_app.Views.CheckoutPage"
              Title="Xác nhận đặt hàng">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:UsernameConverter x:Key='nameConverter' />
+            <converter:AddressConverter x:Key='addressConverter' />
+            <converter:PhoneNumberConverter x:Key='phoneNumberConverter' />
+            <converter:TotalCostConverter x:Key='totalCostConverter' />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:CheckoutViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -21,12 +33,71 @@
                          Grid.Row='0' HorizontalOptions='Start' Aspect='AspectFill'
                          VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
 
-            <pancake:PancakeView Grid.Row='2' CornerRadius='30'
-                                 BackgroundColor='Red' Margin='0,-40'>
-                <StackLayout>
-                    <Label Text="Trang xác nhận thanh toán"></Label>
+            <pancake:PancakeView Grid.Row='1' CornerRadius='30'
+                                 BackgroundColor='AliceBlue' Margin='0,-40'>
+                <StackLayout VerticalOptions="CenterAndExpand"
+                         Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
+                         Margin="10,0,0,0" Orientation="Vertical">
+                    <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Username, Converter={StaticResource nameConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
+                    <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Address, Converter={StaticResource addressConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
+                    <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Text="{Binding Telephone, Converter={StaticResource phoneNumberConverter}}" 
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
                 </StackLayout>
             </pancake:PancakeView>
+
+            <StackLayout Orientation="Vertical" Grid.Row='2'>
+                <pancake:PancakeView>
+                    <CollectionView SelectionMode="Single"
+                            x:Name="ListViewCartItems"
+                            ItemsSource="{Binding CartItems}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
+
+                                    <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
+                                    <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                                    <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
+                                    <Label Text="Số lượng:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="2"/>
+                                    <Label Text="{Binding Quantity}"  FontSize="Body" TextColor="Black" Grid.Row="2" Grid.Column="2"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </pancake:PancakeView>
+
+                <Label Text="{Binding TotalCost, Converter={StaticResource totalCostConverter}}"
+                   HorizontalTextAlignment="End" FontSize="Title" Grid.Row="2"
+                   TextColor="Black"/>
+                <Button x:Name="btnCheckout" 
+                    Text="Đặt hàng" 
+                    TextColor="White" WidthRequest="200" 
+                    Margin='0,0,0,4' Grid.Row="3"
+                    BackgroundColor="CadetBlue"
+                    HorizontalOptions="Center" CornerRadius="20"
+                    Clicked="btnCheckout_Clicked"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

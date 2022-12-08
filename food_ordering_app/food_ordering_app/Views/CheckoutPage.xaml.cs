@@ -21,5 +21,10 @@ namespace food_ordering_app.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        private void btnCheckout_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
