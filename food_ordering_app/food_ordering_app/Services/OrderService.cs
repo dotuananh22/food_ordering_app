@@ -73,7 +73,7 @@ namespace food_ordering_app.Services
         public async Task<ObservableCollection<UserOrder>> GetOrderByUserId(string userId)
         {
             var data = new ObservableCollection<UserOrder>();
-            var resUserOrderData = await client.GetStringAsync(host.ENV_HOST + userId.ToString());
+            var resUserOrderData = await client.GetStringAsync(host.ENV_HOST + "orders/"+ userId.ToString());
             var resultUserOrder = JsonConvert.DeserializeObject<ObservableCollection<UserOrder>>(resUserOrderData);
             return resultUserOrder;
         }
