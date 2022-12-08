@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace food_ordering_app.Convert
 {
-    class TotalCostConverter : IValueConverter
+    class SalePriceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo cultureInfo)
         {
-            return "Tổng tiền: " + string.Format("{0:#,0.#}", System.Convert.ToDecimal(value)) + " VND";
+            return string.Format("{0:#,0.#}", System.Convert.ToDecimal(value)) + " VND";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

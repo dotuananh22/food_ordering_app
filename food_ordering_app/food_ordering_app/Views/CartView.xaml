@@ -13,6 +13,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:TotalCostConverter x:Key='totalCostConverter' />
+            <converter:SalePriceConverter x:Key='salePriceConverter'/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.BindingContext>
@@ -85,7 +86,7 @@
                                 <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
                                 <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
                                 <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
-                                <Label Text="{Binding Price}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
+                                <Label Text="{Binding Price, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
                                 <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
                                     <Button Text="-" WidthRequest="60"/>
                                     <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
