@@ -14,41 +14,64 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <pancake:PancakeView>
-                <CollectionView SelectionMode="Single"
+            <CollectionView SelectionMode="Single"
                             x:Name="ListViewCartItems"
                             SelectionChanged="ListViewCartItems_SelectionChanged" 
                             ItemsSource="{Binding userOrders}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius='20'>
                             <Grid Padding="10">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height='30'/>
+                                    <RowDefinition Height='30'/>
+                                    <RowDefinition Height='30'/>
+                                    <RowDefinition Height='30'/>
+                                    <RowDefinition Height='30'/>
                                 </Grid.RowDefinitions>
 
-                                <Label Text="{Binding userName}"  FontSize="Body" TextColor="Black" 
+                                <Label Text="Tên khách hàng"  FontSize="Body" TextColor="Black" 
                                        FontAttributes='Bold'
                                        Grid.Column="0" Grid.Row="0"/>
-                                <Label Text="{Binding telephone}"  FontSize="Body" TextColor="Black" 
+                                <Label Text="{Binding userName}"  FontSize="Body" TextColor="Black"
                                        Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="Số điện thoại"  FontSize="Body" TextColor="Black" 
+                                       FontAttributes='Bold'
+                                       Grid.Column="0" Grid.Row="1"/>
+                                <Label Text="{Binding telephone}"  FontSize="Body" TextColor="Black" 
+                                       Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="Địa chỉ"  FontSize="Body" TextColor="Black" 
+                                       FontAttributes='Bold'
+                                       Grid.Column="0" Grid.Row="2"/>
+                                <Label Text="{Binding address}"  FontSize="Body" TextColor="Black" 
+                                       Grid.Column="1" Grid.Row="2"/>
+                                <!--<Label Text="Ngày đặt hàng"  FontSize="Body" TextColor="Black" 
+                                       FontAttributes='Bold'
+                                       Grid.Column="0" Grid.Row="3"/>
+                                <Label Text="{Binding createdAt}"  FontSize="Body" TextColor="Black" 
+                                       Grid.Column="1" Grid.Row="3"/>-->
+                                <Label Text="Tổng tiền"  FontSize="Body" TextColor="Black" 
+                                       FontAttributes='Bold'
+                                       Grid.Column="0" Grid.Row="3"/>
                                 <Label Text="{Binding total, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" 
                                        FontAttributes='Bold'
-                                       Grid.Column="2" Grid.Row="0"/>
-                                <Label Text="{Binding createdAt}"  FontSize="Body" TextColor="Black" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan='2'/>
-                                <Label Text="{Binding status}"  FontSize="Body" FontAttributes='Bold'
-                                       TextColor="DarkGreen" Grid.Column="2" Grid.Row="1"/>
+                                       Grid.Column="1" Grid.Row="3"/>
+                                <Label Text="Trạng thái"  FontSize="Body" TextColor="Black" 
+                                       FontAttributes='Bold'
+                                       Grid.Column="0" Grid.Row="4"/>
+                                <Label Text="{Binding status}"  FontSize="Body" 
+                                       TextColor='DarkGreen' FontAttributes='Bold'
+                                       Grid.Column="1" Grid.Row="4"/>
                             </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </pancake:PancakeView>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
