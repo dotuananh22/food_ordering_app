@@ -7,6 +7,8 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using food_ordering_app.Views;
 using food_ordering_app.Services;
+using System.Windows.Input;
+using System.Linq;
 
 namespace food_ordering_app.ViewModels
 {
@@ -24,6 +26,34 @@ namespace food_ordering_app.ViewModels
             get
             {
                 return _TotalCost;
+            }
+        }
+
+        public Command DecreaseQuantityCommand => new Command(DecreaseQuantity);
+        public Command IncreaseQuantityCommand => new Command(IncreaseQuantity);
+        void DecreaseQuantity(object o)
+        {
+            UserCartItem userCartItem = o as UserCartItem;
+
+            var item = CartItems.FirstOrDefault(i => i.CartItemId == userCartItem.CartItemId);
+            if (item != null)
+            {
+                Console.WriteLine(item.Quantity);
+                item.Quantity = userCartItem.Quantity - 1;
+                Console.WriteLine(item.Quantity);
+            }
+        }
+
+        void IncreaseQuantity(object o)
+        {
+            UserCartItem userCartItem = o as UserCartItem;
+            ///
+            var item = CartItems.FirstOrDefault(i => i.CartItemId == userCartItem.CartItemId);
+            if (item != null)
+            {
+                Console.WriteLine(item.Quantity);
+                item.Quantity = userCartItem.Quantity + 1;
+                Console.WriteLine(item.Quantity);
             }
         }
 

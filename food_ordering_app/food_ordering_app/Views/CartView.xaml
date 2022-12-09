@@ -48,9 +48,9 @@
                                 <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
                                 <Label Text="{Binding Price, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
                                 <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                                    <Button Text="-" WidthRequest="60"/>
+                                    <Button Text="-" WidthRequest="60" Command="{Binding Path=BindingContext.DecreaseQuantityCommand, Source={x:Reference ListViewCartItems}}" CommandParameter="{Binding .}"/>
                                     <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
-                                    <Button Text="+" WidthRequest="60"/>
+                                    <Button Text="+" WidthRequest="60" Command="{Binding Path=BindingContext.IncreaseQuantityCommand, Source={x:Reference ListViewCartItems}}" CommandParameter="{Binding .}"/>
                                 </StackLayout>
                             </Grid>
                         </DataTemplate>
