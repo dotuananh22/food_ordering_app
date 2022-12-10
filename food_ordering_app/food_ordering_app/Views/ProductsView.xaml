@@ -6,6 +6,18 @@
              xmlns:converter='clr-namespace:food_ordering_app.Convert'
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              x:Class="food_ordering_app.Views.ProductsView">
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Label Text="ANHHOA FOOD" FontSize="20" TextColor="White" FontAttributes="Bold" 
+                   Margin="0,0,40,0"  VerticalTextAlignment="Center" x:Name="titlePage"/>
+            <Image Source="Add.png" HorizontalOptions="EndAndExpand" VerticalOptions="Center"
+                   HeightRequest='28' WidthRequest='28' Margin='0,0,20,0'>
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </Shell.TitleView>
     <ContentPage.Resources>
         <ResourceDictionary>
             <converter:PriceConverter x:Key='priceConverter' />

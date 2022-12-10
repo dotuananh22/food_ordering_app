@@ -34,26 +34,37 @@ namespace food_ordering_app.ViewModels
         void DecreaseQuantity(object o)
         {
             UserCartItem userCartItem = o as UserCartItem;
+            int index = -1;
 
-            var item = CartItems.FirstOrDefault(i => i.CartItemId == userCartItem.CartItemId);
-            if (item != null)
+            foreach(UserCartItem item in CartItems)
             {
-                Console.WriteLine(item.Quantity);
-                item.Quantity = userCartItem.Quantity - 1;
-                Console.WriteLine(item.Quantity);
+                if(item.CartItemId == userCartItem.CartItemId)
+                {
+                    index++;
+                    break;
+                }
+                index++;
             }
+            userCartItem.Quantity = userCartItem.Quantity - 1 > 0 ? userCartItem.Quantity - 1 : 1;
+            CartItems[index] = userCartItem;
         }
 
         void IncreaseQuantity(object o)
         {
             UserCartItem userCartItem = o as UserCartItem;
-            var item = CartItems.FirstOrDefault(i => i.CartItemId == userCartItem.CartItemId);
-            if (item != null)
+            int index = -1;
+
+            foreach (UserCartItem item in CartItems)
             {
-                Console.WriteLine(item.Quantity);
-                item.Quantity = userCartItem.Quantity + 1;
-                Console.WriteLine(item.Quantity);
+                if (item.CartItemId == userCartItem.CartItemId)
+                {
+                    index++;
+                    break;
+                }
+                index++;
             }
+            userCartItem.Quantity = userCartItem.Quantity + 1;
+            CartItems[index] = userCartItem;
         }
 
         public decimal _TotalItems;

@@ -41,7 +41,7 @@
                        />
             </StackLayout>
 
-            <Label FontSize='Body' FontAttributes='Bold'
+            <Label FontSize='Body' FontAttributes='Bold' HorizontalTextAlignment='Center'
                    TextColor='Black' Grid.Row='2' Margin='0,10,0,0'>
                 <Label.FormattedText>
                     <FormattedString>

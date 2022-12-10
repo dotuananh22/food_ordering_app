@@ -9,71 +9,48 @@
              Title='Đơn hàng'>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <converter:SalePriceConverter x:Key='salePriceConverter' />
+            <converter:TotalCostConverter x:Key='totalCostConverter' />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <CollectionView SelectionMode="Single"
+            <ListView SelectionMode="Single"
                             x:Name="ListViewCartItems"
-                            SelectionChanged="ListViewCartItems_SelectionChanged" 
-                            ItemsSource="{Binding userOrders}">
-                <CollectionView.ItemTemplate>
+                            ItemsSource="{Binding userOrders}" RowHeight="180" ItemSelected="ListViewCartItems_ItemSelected">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="110"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="115"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height='30'/>
-                                <RowDefinition Height='30'/>
-                                <RowDefinition Height='30'/>
-                                <RowDefinition Height='30'/>
-                            </Grid.RowDefinitions>
-
-                            <Label Text="Đơn hàng"  FontSize="Body" TextColor="Gray" 
-                                    FontAttributes='Bold'
-                                    Grid.Column="0" Grid.Row="0"/>
-                            <Label Text="{Binding _id}"  FontSize="Body" TextColor="Black"
-                                    FontAttributes='Bold'
-                                    Grid.Column="1" Grid.Row="0" Grid.ColumnSpan='3'/>
-                            <Label Text="Ngày đặt hàng"  FontSize="Body" TextColor="Gray" 
-                                    Grid.Column="0" Grid.Row="1"/>
-                            <Label Text="{Binding createdAt}"  FontSize="Body" TextColor="Gray" 
-                                    Grid.Column="1" Grid.Row="1" Grid.ColumnSpan='3'/>
-                            <!--<Label Text="Điện thoại"  FontSize="Body" TextColor="Gray" 
-                                    Grid.Column="0" Grid.Row="2"/>
-                            <Label Text="{Binding telephone}"  FontSize="Body" TextColor="Gray" 
-                                    Grid.Column="1" Grid.Row="2" Grid.ColumnSpan='2'/>-->
-                            <Label Text="Tổng tiền"  FontSize="Body" TextColor="Gray" FontAttributes='Bold'
-                                    Grid.Column="2" Grid.Row="2"/>
-                            <Label Text="{Binding total, Converter={StaticResource salePriceConverter}}" 
-                                    FontSize="Body" TextColor="Black" FontAttributes='Bold'
-                                    Grid.Column="3" Grid.Row="2"/>
-
-                            <Label FontSize='Body' FontAttributes='Bold'
-                                    TextColor='Black' Grid.Row='3'>
-                                <Label.FormattedText>
-                                    <FormattedString>
-                                        <Span Text='Xem chi tiết' TextColor='DeepSkyBlue'>
-                                            <Span.GestureRecognizers>
-                                                <TapGestureRecognizer Command='{Binding TapCommand}'/>
-                                            </Span.GestureRecognizers>
-                                        </Span>
-                                    </FormattedString>
-                                </Label.FormattedText>
-                            </Label>
-                            <Label Text="{Binding status}"  FontSize="Body" 
-                                    TextColor='Green' FontAttributes='Bold'
-                                    Grid.Column="3" Grid.Row="3"/>
-                        </Grid>
+                        <ViewCell>
+                            <Frame CornerRadius="10" Margin="10">
+                                <StackLayout Orientation="Vertical" Spacing="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Đơn hàng"  FontSize="Body" TextColor="Gray"
+                                    FontAttributes='Bold'/>
+                                        <Label Text="{Binding _id}"  FontSize="Body" TextColor="Black" FontAttributes='Bold'
+                                               HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Ngày đặt hàng"  FontSize="Body" TextColor="Gray" FontAttributes='Bold'/>
+                                        <Label Text="{Binding createdAt}"  FontSize="Body" TextColor="Gray" 
+                                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Số điện thoại"  FontSize="Body" TextColor="Gray" FontAttributes='Bold'/>
+                                        <Label Text="{Binding telephone}"  FontSize="Body" TextColor="Black" FontAttributes='Bold' 
+                                                    HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding total, Converter={StaticResource totalCostConverter}}" 
+                                        FontSize="Body" TextColor="Black" FontAttributes='Bold'/>
+                                        <Label Text="{Binding status}"  FontSize="Body" 
+                                        TextColor='Green' FontAttributes='Bold'
+                                        HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

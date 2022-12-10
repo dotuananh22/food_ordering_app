@@ -46,5 +46,10 @@ namespace food_ordering_app.Views
             await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//Cart");
+        }
     }
 }
