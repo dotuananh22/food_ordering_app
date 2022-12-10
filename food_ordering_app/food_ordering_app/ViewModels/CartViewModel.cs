@@ -47,7 +47,6 @@ namespace food_ordering_app.ViewModels
         void IncreaseQuantity(object o)
         {
             UserCartItem userCartItem = o as UserCartItem;
-            ///
             var item = CartItems.FirstOrDefault(i => i.CartItemId == userCartItem.CartItemId);
             if (item != null)
             {

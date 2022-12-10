@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             Title="Burger Queen"
+             Title="ANHHOA FOOD"
              ios:Page.UseSafeArea="True"
              xmlns:vm="clr-namespace:food_ordering_app.ViewModels"
              Visual="Material"
@@ -19,12 +19,12 @@
             <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0" Grid.Row="0">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <StackLayout IsVisible="{Binding IsCartExists}">
-                        <Label Text="Có sản phẩm trong giỏ hàng!"/>
-                        <Label Text="{Binding UserCartItemCount, StringFormat='Giỏ hàng của bản có {0} sản phẩm'}"/>
+                        <Label Text="Có sản phẩm trong giỏ hàng!" FontSize='Body'/>
+                        <Label Text="{Binding UserCartItemCount, StringFormat='Giỏ hàng của bạn có {0} sản phẩm'}" FontSize='Body'/>
                     </StackLayout>
 
                     <StackLayout>
-                        <Label Text="Bạn có chắc chắn muốn đăng xuất?"/>
+                        <Label Text="Bạn có chắc chắn muốn đăng xuất?" FontSize='Body'/>
                         <StackLayout Orientation="Horizontal" Spacing="10">
                             <Button Text="Đăng xuất" HorizontalOptions="Center"
                                     BackgroundColor="Red" CornerRadius="20"
