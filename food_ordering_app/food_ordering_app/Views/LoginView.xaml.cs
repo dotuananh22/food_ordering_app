@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,11 +15,6 @@ namespace food_ordering_app.Views
         public LoginView()
         {
             InitializeComponent();
-        }
-
-        private void btnRegister_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new RegisterPage());
         }
     }
 }

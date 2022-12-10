@@ -67,10 +67,17 @@ namespace food_ordering_app.ViewModels
         }
 
         public Command RegisterCommand { get; set; }
+        public Command TapCommand { get; set; }
 
         public RegisterViewModel()
         {
             RegisterCommand = new Command(async () => await RegisterCommandAsync());
+            TapCommand = new Command(async () => await TapCommandAsync());
+        }
+
+        private async Task TapCommandAsync()
+        {
+            _ = Application.Current.MainPage.Navigation.PopAsync();
         }
 
         private async Task RegisterCommandAsync()

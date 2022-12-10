@@ -33,47 +33,51 @@
                          VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
 
             <pancake:PancakeView Grid.Row='1' CornerRadius='30'
-                                 BackgroundColor='AliceBlue' Margin='0,-40'>
+                                 BackgroundColor='AliceBlue' Margin='0,-55'>
                 <Grid VerticalOptions="CenterAndExpand"
                          Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"
                          Margin="10,0,0,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+
+                    <Label Text='Thông tin người nhận hàng' FontSize='20' FontAttributes='Bold'
+                       TextColor='DeepSkyBlue' Margin='0,4,0,0' Grid.Row='0' Grid.Column='0' Grid.ColumnSpan='2'/>
                     <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
                        Text="Tên" 
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
-                    <Entry Text="{Binding Username}" Grid.Row="0" Grid.Column="1"/>
-                    <Label HorizontalTextAlignment="Start"
-                       VerticalTextAlignment="Center"
-                       Text="Địa chỉ" 
                        Grid.Row="1"
                        Grid.Column="0"
                        TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
-                    <Entry Text="{Binding Address}" Grid.Row="1" Grid.Column="1"/>
+                    <Entry Text="{Binding Username}" Grid.Row="1" Grid.Column="1"/>
                     <Label HorizontalTextAlignment="Start"
                        VerticalTextAlignment="Center"
+                       Text="Địa chỉ" 
                        Grid.Row="2"
+                       Grid.Column="0"
+                       TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
+                    <Entry Text="{Binding Address}" Grid.Row="2" Grid.Column="1"/>
+                    <Label HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center"
+                       Grid.Row="3"
                        Grid.Column="0"
                        Text="Số điện thoại" 
                        TextColor="Black" FontSize='Body' FontAttributes="Bold"/>
-                    <Entry Text="{Binding Telephone}" Grid.Row="2" Grid.Column="1"/>
+                    <Entry Text="{Binding Telephone}" Grid.Row="3" Grid.Column="1"/>
                 </Grid>
             </pancake:PancakeView>
 
             <StackLayout Orientation="Vertical" Grid.Row='2' Margin="0,40,0,0">
                 <Label Text='Thông tin các sản phẩm'
                        FontSize='20' FontAttributes='Bold'
-                       TextColor='DeepSkyBlue' Margin='6,4,0,0'/>
+                       TextColor='DeepSkyBlue' Margin='6,10,0,0'/>
                 <pancake:PancakeView>
                     <CollectionView SelectionMode="Single"
                             x:Name="ListViewCartItems"
@@ -82,24 +86,26 @@
                             <DataTemplate>
                                 <Grid Padding="10">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="150"/>
-                                        <ColumnDefinition Width="80"/>
+                                        <ColumnDefinition Width="120"/>
+                                        <ColumnDefinition Width="90"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="25"/>
                                     </Grid.RowDefinitions>
 
                                     <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
-
-                                    <Label Text="Sản phẩm"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                                    <Label Text="Sản phẩm"  FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="0"/>
                                     <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
-                                    <Label Text="Giá" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                                    <Label Text="Giá" FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="1"/>
                                     <Label Text="{Binding Price, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
-                                    <Label Text="Số lượng" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="2"/>
+                                    <Label Text="Số lượng" FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="2"/>
                                     <Label Text="{Binding Quantity}"  FontSize="Body" TextColor="Black" Grid.Row="2" Grid.Column="2"/>
                                 </Grid>
                             </DataTemplate>

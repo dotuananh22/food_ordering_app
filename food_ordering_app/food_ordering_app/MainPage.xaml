@@ -19,7 +19,7 @@
             <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
         </Tab>
         <Tab Title="Giỏ hàng" Icon="Add.png" >
-            <ShellContent ContentTemplate="{DataTemplate views:CartView}"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate views:CartView}" Route="Cart"></ShellContent>
         </Tab>
         <Tab Title="Đơn hàng" Icon="ordericon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:UserOrderView}"></ShellContent>

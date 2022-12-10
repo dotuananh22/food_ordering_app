@@ -24,24 +24,26 @@
                 <DataTemplate>
                     <Grid Padding="10">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="90"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
                         </Grid.RowDefinitions>
 
                         <Image Source="{Binding imageUrl}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
-
-                        <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                        <Label Text="Sản phẩm"  FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="0"/>
                         <Label Text="{Binding name}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
-                        <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                        <Label Text="Giá" FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="1"/>
                         <Label Text="{Binding price, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
-                        <Label Text="Số lượng:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="2"/>
+                        <Label Text="Số lượng" FontSize="Body" TextColor="Black" 
+                                           FontAttributes='Bold' Grid.Column="1" Grid.Row="2"/>
                         <Label Text="{Binding quantity}"  FontSize="Body" TextColor="Black" Grid.Row="2" Grid.Column="2"/>
                     </Grid>
                 </DataTemplate>

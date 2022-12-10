@@ -15,23 +15,19 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height='Auto'/>
-                <RowDefinition Height='Auto'/>
                 <RowDefinition Height='*'/>
             </Grid.RowDefinitions>
 
             <Image Grid.Row='0' Source='{Binding SelectedCategory.ImageUrl}'
                    Aspect='AspectFill' VerticalOptions='Start'/>
-            <Label Grid.Row='1' Text='{Binding SelectedCategory.categoryName}'
-                   TextColor='Black' FontAttributes='Italic,Bold' FontSize='35'
-                   Margin='25,-85,0,0'/>
             <ImageButton Source='{FontImage FontFamily=FontAwesome,
                 Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=Black}'
                          Grid.Row='0' HorizontalOptions='Start' Aspect='AspectFill'
                          VerticalOptions='Start' Margin='10,30' Clicked='ImageButton_Clicked'/>
 
-            <pancake:PancakeView Grid.Row='2' CornerRadius='30'
+            <pancake:PancakeView Grid.Row='1' CornerRadius='30'
                                  BackgroundColor='White' Margin='0,-40'>
-                <Grid Padding='25,30'>
+                <Grid Padding='25,10'>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width='*'/>
                         <ColumnDefinition Width='Auto'/>

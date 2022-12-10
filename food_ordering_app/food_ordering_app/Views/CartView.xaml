@@ -30,27 +30,29 @@
                         <DataTemplate>
                             <Grid Padding="10">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="150"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="40"/>
                                 </Grid.RowDefinitions>
 
                                 <Image Source="{Binding Image}" Grid.Column="0" Grid.Row="0" Aspect="AspectFill" Grid.RowSpan="3"/>
 
-                                <Label Text="Sản phẩm:"  FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="Sản phẩm"  FontSize="Body" TextColor="DeepSkyBlue" 
+                                       FontAttributes='Bold' Grid.Column="1" Grid.Row="0"/>
                                 <Label Text="{Binding ProductName}"  FontSize="Body" TextColor="Black" Grid.Column="2" Grid.Row="0"/>
-                                <Label Text="Giá:" FontSize="Body" TextColor="Black" Grid.Column="1" Grid.Row="1"/>
+                                <Label Text="Giá" FontSize="Body" TextColor="DeepSkyBlue"
+                                       FontAttributes='Bold' Grid.Column="1" Grid.Row="1"/>
                                 <Label Text="{Binding Price, Converter={StaticResource salePriceConverter}}"  FontSize="Body" TextColor="Black" Grid.Row="1" Grid.Column="2"/>
                                 <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-                                    <Button Text="-" WidthRequest="60"/>
+                                    <Button Text="-" WidthRequest="60" Command="{Binding Path=BindingContext.DecreaseQuantityCommand, Source={x:Reference ListViewCartItems}}" CommandParameter="{Binding .}"/>
                                     <Label Text="{Binding Quantity}" FontSize="Body" TextColor="Black" VerticalOptions="Center"/>
-                                    <Button Text="+" WidthRequest="60"/>
+                                    <Button Text="+" WidthRequest="60" Command="{Binding Path=BindingContext.IncreaseQuantityCommand, Source={x:Reference ListViewCartItems}}" CommandParameter="{Binding .}"/>
                                 </StackLayout>
                             </Grid>
                         </DataTemplate>

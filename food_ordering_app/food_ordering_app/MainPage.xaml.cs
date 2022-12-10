@@ -13,7 +13,7 @@ namespace food_ordering_app
         public MainPage()
         {
             InitializeComponent();
-            Title = "BURGER QUEEN";
+            Title = "ANHHOA FOOD";
         }
     }
 }

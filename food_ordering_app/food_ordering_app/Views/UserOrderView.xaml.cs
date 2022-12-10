@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,9 +27,15 @@ namespace food_ordering_app.Views
 
         }
 
-        private async void ListViewCartItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //private async void ListViewCartItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var selectedOrder = e.CurrentSelection.FirstOrDefault() as UserOrder;
+        //    await Navigation.PushAsync(new DetailOrderView(selectedOrder._id));
+        //}
+
+        private async void ListViewCartItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var selectedOrder = e.CurrentSelection.FirstOrDefault() as UserOrder;
+            var selectedOrder = ListViewCartItems.SelectedItem as UserOrder;
             await Navigation.PushAsync(new DetailOrderView(selectedOrder._id));
         }
     }

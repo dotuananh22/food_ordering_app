@@ -56,12 +56,21 @@ namespace food_ordering_app.ViewModels
         }
 
         public Command LoginCommand { get; set; }
-      
+        public Command TapCommand { get; set; }
+
+
 
         public LoginViewModel()
         {
-            LoginCommand = new Command(async () => await LoginCommandAsync());           
+            LoginCommand = new Command(async () => await LoginCommandAsync());
+            TapCommand = new Command(async () => await TapCommandAsync());
         }
+
+        private async Task TapCommandAsync()
+        {
+            _ = Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
+        }
+
         private async Task LoginCommandAsync()
         {
             try

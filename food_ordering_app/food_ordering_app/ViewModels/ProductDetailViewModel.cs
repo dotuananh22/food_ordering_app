@@ -74,7 +74,7 @@ namespace food_ordering_app.ViewModels
         {
             TotalQuantity--;
         }
-        private void AddToCart()
+        private async void AddToCart()
         {
             var cn = DependencyService.Get<ISQLite>().GetConnection();
             try {
@@ -99,12 +99,12 @@ namespace food_ordering_app.ViewModels
                 }
                 cn.Commit();
                 cn.Close();
-                Application.Current.MainPage.DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
-                
+                await Application.Current.MainPage.DisplayAlert("Thông báo", "Thêm vào giỏ hàng thành công", "OK");
+                Application.Current.MainPage = new MainPage();
             }
             catch (Exception ex)
             {
-                Application.Current.MainPage.DisplayAlert("Lỗi", ex.Message, "OK");
+                await Application.Current.MainPage.DisplayAlert("Lỗi", ex.Message, "OK");
             }
             finally
             {
