@@ -54,7 +54,7 @@ namespace food_ordering_app.ViewModels
         public ProductDetailViewModel(FoodItem foodItem)
         {
             SelectedFoodItem = foodItem;
-            TotalQuantity = 0;
+            TotalQuantity = 1;
             IncrementOrderComand = new Command(() => IncrementOrder());
             DecrementOrderComand = new Command(() => DecrementOrder());
             AddToCartCommand = new Command(() => AddToCart());
