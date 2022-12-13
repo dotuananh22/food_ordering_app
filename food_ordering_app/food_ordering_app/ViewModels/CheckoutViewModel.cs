@@ -165,7 +165,7 @@ namespace food_ordering_app.ViewModels
             //telephone
             var telephone = Preferences.Get("Telephone", String.Empty);
             if (String.IsNullOrEmpty(address))
-                Telephone = "Soo Dien Thoai";
+                Telephone = "So Dien Thoai";
             else
                 Telephone = telephone;
 

@@ -46,7 +46,20 @@ namespace food_ordering_app.ViewModels
                 index++;
             }
             userCartItem.Quantity = userCartItem.Quantity - 1 > 0 ? userCartItem.Quantity - 1 : 1;
+            userCartItem.Cost = userCartItem.Price * userCartItem.Quantity;
             CartItems[index] = userCartItem;
+
+            var cn = DependencyService.Get<ISQLite>().GetConnection();
+            var itemUpdate = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.CartItemId == userCartItem.CartItemId);
+            itemUpdate.Quantity = userCartItem.Quantity;
+            cn.Update(itemUpdate);
+
+            TotalCost = 0;
+            foreach (var item in CartItems)
+            {
+                TotalCost += item.Quantity * item.Price;
+            }
         }
 
         void IncreaseQuantity(object o)
@@ -64,7 +77,20 @@ namespace food_ordering_app.ViewModels
                 index++;
             }
             userCartItem.Quantity = userCartItem.Quantity + 1;
+            userCartItem.Cost = userCartItem.Price * userCartItem.Quantity;
             CartItems[index] = userCartItem;
+
+            var cn = DependencyService.Get<ISQLite>().GetConnection();
+            var itemUpdate = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.CartItemId == userCartItem.CartItemId);
+            itemUpdate.Quantity = userCartItem.Quantity;
+            cn.Update(itemUpdate);
+
+            TotalCost = 0;
+            foreach(var item in CartItems)
+            {
+                TotalCost += item.Quantity * item.Price;
+            }
         }
 
         public decimal _TotalItems;
