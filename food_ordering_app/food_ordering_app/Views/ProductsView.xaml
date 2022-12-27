@@ -82,7 +82,6 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height='Auto'/>
                                     <RowDefinition Height='Auto'/>
-                                    <!--<RowDefinition Height='Auto'/>-->
                                 </Grid.RowDefinitions>
 
                                 <pancake:PancakeView Grid.Row='0' CornerRadius='20' Margin='0,0,10,0'>

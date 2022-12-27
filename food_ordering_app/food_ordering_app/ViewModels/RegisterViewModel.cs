@@ -91,6 +91,7 @@ namespace food_ordering_app.ViewModels
                 {
                     await Application.Current.MainPage.DisplayAlert("Thành công",
                       Result.message, "OK");
+                    _ = Application.Current.MainPage.Navigation.PopAsync();
                     return;
                 }
                 else
