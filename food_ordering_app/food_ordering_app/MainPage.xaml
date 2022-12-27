@@ -15,9 +15,9 @@
         <Tab Title="Trang chủ" Icon="HomeIcon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
         </Tab>
-        <Tab Title="Sản phẩm" Icon="producticon.png" >
+        <!--<Tab Title="Sản phẩm" Icon="producticon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
-        </Tab>
+        </Tab>-->
         <Tab Title="Giỏ hàng" Icon="Add.png" >
             <ShellContent ContentTemplate="{DataTemplate views:CartView}" Route="Cart"></ShellContent>
         </Tab>
@@ -29,7 +29,7 @@
         </Tab>
     </FlyoutItem>
 
-    <ShellContent Title="About us" Icon="AboutIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>
-    <ShellContent Title="Help" Icon="HelpIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>
+    <!--<ShellContent Title="About us" Icon="AboutIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>
+    <ShellContent Title="Help" Icon="HelpIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>-->
 
 </Shell>
