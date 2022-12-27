@@ -31,14 +31,14 @@ namespace food_ordering_app.ViewModels
             set
             {
                 this._TotalQuantity = value;
-                if(this._TotalQuantity < 0)
+                if(this._TotalQuantity < 1)
                 {
-                    this._TotalQuantity = 0;
+                    this._TotalQuantity = 1;
                 }
-                if (this._TotalQuantity > 10)
-                {
-                    this._TotalQuantity -= 1;
-                }
+                //if (this._TotalQuantity > 10)
+                //{
+                //    this._TotalQuantity -= 1;
+                //}
                 OnPropertyChanged();
             }
             get
