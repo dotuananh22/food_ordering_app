@@ -24,6 +24,9 @@
         <Tab Title="Đơn hàng" Icon="ordericon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:UserOrderView}"></ShellContent>
         </Tab>
+        <!--<Tab Title="Yêu thích" Icon="favouriteicon.png" >
+            <ShellContent ContentTemplate="{DataTemplate views:FavouriteView}"></ShellContent>
+        </Tab>-->
         <Tab Title="Đăng xuất" Icon="logouticon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:LogoutView}"></ShellContent>
         </Tab>
