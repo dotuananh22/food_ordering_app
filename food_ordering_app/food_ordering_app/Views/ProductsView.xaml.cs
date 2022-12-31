@@ -28,6 +28,7 @@ namespace food_ordering_app.Views
                 return;
 
             await Navigation.PushModalAsync(new CategoryView(category));
+            //await Navigation.PushAsync(new FavouriteView(category));
             ((CollectionView)sender).SelectedItem = null;
         }
 

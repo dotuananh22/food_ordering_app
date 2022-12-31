@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake ="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:helpers ="clr-namespace:food_ordering_app.Helpers"
+             xmlns:converter='clr-namespace:food_ordering_app.Convert'
+             x:Class="food_ordering_app.Views.FavouriteView"
+             Title='Sản phẩm yêu thích'>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:PriceConverter x:Key='priceConverter' />
+            <converter:ProductNameConverter x:Key='productNameConverter' />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <pancake:PancakeView CornerRadius='30' BackgroundColor='White' Margin='0,-40'>
+            <Grid Padding='25,10'>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width='*'/>
+                    <ColumnDefinition Width='Auto'/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height='Auto'/>
+                    <RowDefinition Height='*'/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row='0' Grid.Column='0' Text="{Binding TotalFoodItems,
+                        StringFormat='Có {0} sản phẩm yêu thích'}" FontSize='20' FontAttributes='Bold' Margin='0,40,0,10'/>
+                <Image Grid.Row='0' Grid.Column='1' Source='More'/>
+
+                <CollectionView ItemsSource='{Binding FoodItemsByCategory}'
+                                    VerticalOptions='Start'
+                                    VerticalScrollBarVisibility='Never'
+                                    Grid.Row='1' Grid.Column='0' Grid.ColumnSpan='2'
+                                    SelectionMode='Single'
+                                    SelectionChanged='CollectionView_SelectionChanged'>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="RemainOpen">
+                                        <SwipeItem Text="Thêm vào giỏ"
+                                                   IconImageSource="BuyIcon.png"
+                                                   BackgroundColor="Green"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="SwipeItem_Invoked" />
+                                        <SwipeItem Text="Xóa"
+                                                   IconImageSource="Remove.png"
+                                                   BackgroundColor="Red"
+                                                   CommandParameter="{Binding .}"
+                                                   Invoked="SwipeItem_Invoked_1" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout>
+                                    <Frame HasShadow='False' BackgroundColor='#fef6f2' HeightRequest='90'
+                                           CornerRadius='20' Margin='0,10'>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width='Auto'/>
+                                                <ColumnDefinition Width='*'/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height='*'/>
+                                                <RowDefinition Height='*'/>
+                                                <RowDefinition Height='*'/>
+                                            </Grid.RowDefinitions>
+
+                                            <pancake:PancakeView Grid.Column='0' Grid.Row='0' Grid.RowSpan='3'
+                                                                 CornerRadius='12' Margin='0,0,10,0'>
+                                                <Image Source='{Binding imageUrl}' HeightRequest='100'
+                                                       WidthRequest='95' Aspect='AspectFill'/>
+                                            </pancake:PancakeView>
+
+                                            <Label Grid.Row='0' Grid.Column='1'
+                                                   Text='{Binding name, Converter={StaticResource productNameConverter}}' FontSize='18' FontAttributes='Bold'/>
+                                            <Label Grid.Row='1' Grid.Column='1'
+                                                   Text='{Binding price, Converter={StaticResource priceConverter}}' FontSize='18' FontAttributes='Bold'
+                                                   TextColor='#a4a7b6'/>
+                                            <Image Grid.Row='2' Grid.Column='1' Source='Star.png'
+                                                   HorizontalOptions='Start' WidthRequest='20'/>
+                                            <Label Grid.Row='2' Grid.Column='1' Margin='30,0,0,0'
+                                                   FontSize='15' VerticalOptions='Center'>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text='{Binding rating}' FontAttributes='Bold'/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </pancake:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

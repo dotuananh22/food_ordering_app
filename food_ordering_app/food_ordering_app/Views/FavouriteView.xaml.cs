@@ -12,19 +12,14 @@ using Xamarin.Forms.Xaml;
 namespace food_ordering_app.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoryView : ContentPage
+    public partial class FavouriteView : ContentPage
     {
         CategoryViewModel cvm;
-        public CategoryView(Category category)
+        public FavouriteView(Category category)
         {
             InitializeComponent();
             cvm = new CategoryViewModel(category);
             this.BindingContext = cvm;
-        }
-
-        private async void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
 
         private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,10 +36,9 @@ namespace food_ordering_app.Views
 
         }
 
-        private void ImgAddToFavoutiteList_Tapped(object sender, EventArgs e)
+        private void SwipeItem_Invoked_1(object sender, EventArgs e)
         {
-            Image img = (Image)sender;
-            img.Source = img.Source.ToString() == "File: FavouriteBlackIcon.png" ? "FavouriteRedIcon.png" : "FavouriteBlackIcon.png";
+
         }
     }
 }

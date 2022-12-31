@@ -66,7 +66,7 @@
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width='Auto'/>
                                                     <ColumnDefinition Width='*'/>
-                                                    <ColumnDefinition Width='Auto'/>
+                                                    <ColumnDefinition Width='40'/>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height='*'/>
@@ -95,8 +95,14 @@
                                                         </FormattedString>
                                                     </Label.FormattedText>
                                                 </Label>
-                                                <Image Grid.Row='0' Grid.Column='2' HeightRequest='15'
-                                                   Source='{Binding HomeSelected}'/>
+                                                <Image Grid.Row='2' Grid.Column='2' HeightRequest='20' WidthRequest='20'
+                                                   Source='FavouriteBlackIcon.png'>
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer x:Name='ImgAddToFavoutiteList' Tapped='ImgAddToFavoutiteList_Tapped' />
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                                <!--<Image Grid.Row='2' Grid.Column='2' HeightRequest='15'
+                                                   Source='{Binding HomeSelected}'/>-->
                                             </Grid>
                                         </Frame>
                                     </StackLayout>
