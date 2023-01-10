@@ -15,24 +15,14 @@
         <Tab Title="Trang chủ" Icon="HomeIcon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
         </Tab>
-        <!--<Tab Title="Sản phẩm" Icon="producticon.png" >
-            <ShellContent ContentTemplate="{DataTemplate views:ProductsView}"></ShellContent>
-        </Tab>-->
         <Tab Title="Giỏ hàng" Icon="Add.png" >
             <ShellContent ContentTemplate="{DataTemplate views:CartView}" Route="Cart"></ShellContent>
         </Tab>
         <Tab Title="Đơn hàng" Icon="ordericon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:UserOrderView}"></ShellContent>
         </Tab>
-        <!--<Tab Title="Yêu thích" Icon="favouriteicon.png" >
-            <ShellContent ContentTemplate="{DataTemplate views:FavouriteView}"></ShellContent>
-        </Tab>-->
         <Tab Title="Đăng xuất" Icon="logouticon.png" >
             <ShellContent ContentTemplate="{DataTemplate views:LogoutView}"></ShellContent>
         </Tab>
     </FlyoutItem>
-
-    <!--<ShellContent Title="About us" Icon="AboutIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>
-    <ShellContent Title="Help" Icon="HelpIcon.png" ContentTemplate="{DataTemplate views:ProductsView}"/>-->
-
 </Shell>
