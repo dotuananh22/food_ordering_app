@@ -40,11 +40,5 @@ namespace food_ordering_app.Views
         {
 
         }
-
-        private void ImgAddToFavoutiteList_Tapped(object sender, EventArgs e)
-        {
-            Image img = (Image)sender;
-            img.Source = img.Source.ToString() == "File: FavouriteBlackIcon.png" ? "FavouriteRedIcon.png" : "FavouriteBlackIcon.png";
-        }
     }
 }
